@@ -1,0 +1,60 @@
+# Xcode
+.DS_Store
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+Packages/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code Injection
+iOSInjectionProject/
+
+# Instruments
+*.trace
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager Archives
+*.zip
+
+# Documentation
+.docs/
+docs/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# Test outputs
+TestResults/
+*.xcresult/
+
+# Derived data
+DerivedData/
+
+# Godot
+*.import
+.godot/
