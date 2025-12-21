@@ -8,3 +8,7 @@ DerivedData/
 .netrc
 Package.resolved
 *.xcodeproj
+
+# Godot project artifacts
+GodotProject/.godot/
+GodotProject/bin/

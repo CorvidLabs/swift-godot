@@ -15,6 +15,7 @@ let package = Package(
         ),
         .library(
             name: "SwiftGodotKitDemo",
+            type: .dynamic,
             targets: ["Demo"]
         )
     ],
@@ -40,7 +41,10 @@ let package = Package(
         .target(
             name: "Demo",
             dependencies: ["SwiftGodotKit"],
-            path: "Sources/Demo"
+            path: "Sources/Demo",
+            plugins: [
+                .plugin(name: "EntryPointGeneratorPlugin", package: "SwiftGodot")
+            ]
         ),
         .testTarget(
             name: "SwiftGodotKitTests",
