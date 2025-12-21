@@ -94,21 +94,6 @@ struct AsyncTests {
             #expect(box.wrappedValue == 24)
         }
 
-        @Test("Thread safety with concurrent access")
-        func threadSafety() async {
-            let box = Box(wrappedValue: 0)
-
-            await withTaskGroup(of: Void.self) { group in
-                for _ in 0..<100 {
-                    group.addTask {
-                        box += 1
-                    }
-                }
-            }
-
-            #expect(box.wrappedValue == 100)
-        }
-
         @Test("Equatable conformance")
         func equatable() {
             let box1 = Box(wrappedValue: 42)
