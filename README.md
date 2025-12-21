@@ -35,7 +35,7 @@ Add SwiftGodotKit to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/CorvidLabs/swift-godot.git", from: "1.0.0")
+    .package(url: "https://github.com/CorvidLabs/swift-godot.git", from: "0.1.0")
 ]
 ```
 
@@ -72,13 +72,13 @@ class Player: CharacterBody3D {
 
     override func _process(delta: Double) {
         // React to state changes
-        if $health.didChange {
+        if $health.changed {
             healthBar?.value = Double(health)
             if health <= 0 { isAlive = false }
         }
 
         // Reset change flags at end of frame
-        $health.resetChangeFlag()
+        $health.reset()
     }
 
     func takeDamage(_ amount: Int) {
@@ -99,12 +99,12 @@ Reactive state management with change tracking:
 @GodotState var score: Int = 0
 
 // Check if changed this frame
-if $score.didChange {
+if $score.changed {
     updateScoreDisplay()
 }
 
 // Get previous value
-if let previous = $score.previousValue {
+if let previous = $score.previous {
     animateScoreChange(from: previous, to: score)
 }
 

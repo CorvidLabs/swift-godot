@@ -24,14 +24,14 @@
 ///     }
 ///
 ///     override func _process(delta: Double) {
-///         if $health.didChange {
+///         if $health.changed {
 ///             healthBar?.value = Double(health)
 ///         }
-///         $health.resetChangeFlag()
+///         $health.reset()
 ///     }
 /// }
 /// ```
 public enum SwiftGodotKit {
     /// Current version of SwiftGodotKit
-    public static let version = "1.0.0"
+    public static let version = "0.1.0"
 }
