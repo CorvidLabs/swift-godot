@@ -25,9 +25,9 @@ struct ProtocolTests {
     @Suite("Signal Definitions")
     struct SignalDefinitionTests {
 
-        @Test("Signal0 with StringName")
-        func signal0StringName() {
-            let signal = Signal0(StringName("test"))
+        @Test("Signal0 with String")
+        func signal0String() {
+            let signal = Signal0("test")
             #expect(signal.name == StringName("test"))
         }
 

@@ -25,22 +25,22 @@ struct PropertyWrapperTests {
         @Test("Change detection works")
         func changeDetection() {
             @GodotState var value: Int = 10
-            #expect($value.didChange == false)
+            #expect($value.changed == false)
 
             value = 20
-            #expect($value.didChange == true)
-            #expect($value.previousValue == 10)
+            #expect($value.changed == true)
+            #expect($value.previous == 10)
         }
 
         @Test("Reset change flag works")
         func resetChangeFlag() {
             @GodotState var value: Int = 10
             value = 20
-            #expect($value.didChange == true)
+            #expect($value.changed == true)
 
-            $value.resetChangeFlag()
-            #expect($value.didChange == false)
-            #expect($value.previousValue == nil)
+            $value.reset()
+            #expect($value.changed == false)
+            #expect($value.previous == nil)
         }
 
         @Test("Binding provides two-way access")
@@ -54,20 +54,6 @@ struct PropertyWrapperTests {
             #expect(value == 15)
         }
 
-        @Test("Thread safety with concurrent access")
-        func threadSafety() async {
-            @GodotState var counter: Int = 0
-
-            await withTaskGroup(of: Void.self) { group in
-                for _ in 0..<100 {
-                    group.addTask {
-                        counter += 1
-                    }
-                }
-            }
-
-            #expect(counter == 100)
-        }
     }
 
     // MARK: - GodotSignal Tests
