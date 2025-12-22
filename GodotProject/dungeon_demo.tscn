@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dungeon_demo"]
+
+[node name="DungeonGame" type="DungeonGame"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="DungeonGrid" type="Node2D" parent="."]
+position = Vector2(137, 50)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 300.0
+offset_top = 10.0
+offset_right = 750.0
+offset_bottom = 30.0
+text = "Dungeon Crawler - Arrow keys to move"
+horizontal_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 560.0
+offset_right = 120.0
+offset_bottom = 585.0
+text = "HP: 100"
+
+[node name="GoldLabel" type="Label" parent="UI"]
+offset_left = 140.0
+offset_top = 560.0
+offset_right = 260.0
+offset_bottom = 585.0
+text = "Gold: 0"
+
+[node name="LevelLabel" type="Label" parent="UI"]
+offset_left = 280.0
+offset_top = 560.0
+offset_right = 400.0
+offset_bottom = 585.0
+text = "Depth: 1"
+
+[node name="MessageLabel" type="Label" parent="UI"]
+offset_left = 500.0
+offset_top = 560.0
+offset_right = 1000.0
+offset_bottom = 585.0
+text = ""
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://memory_demo"]
+
+[node name="MemoryGame" type="MemoryGame"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.1, 0.12, 0.18, 1)
+
+[node name="CardGrid" type="Node2D" parent="."]
+position = Vector2(512, 320)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 300.0
+offset_top = 15.0
+offset_right = 750.0
+offset_bottom = 40.0
+text = "Memory Match - Click cards to find pairs"
+horizontal_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="UI"]
+offset_left = 820.0
+offset_top = 200.0
+offset_right = 1000.0
+offset_bottom = 225.0
+text = "Moves: 0"
+
+[node name="PairsLabel" type="Label" parent="UI"]
+offset_left = 820.0
+offset_top = 230.0
+offset_right = 1000.0
+offset_bottom = 255.0
+text = "Pairs: 0/8"
+
+[node name="TimeLabel" type="Label" parent="UI"]
+offset_left = 820.0
+offset_top = 260.0
+offset_right = 1000.0
+offset_bottom = 285.0
+text = "Time: 0.0s"
+
+[node name="WinLabel" type="Label" parent="UI"]
+visible = false
+offset_left = 300.0
+offset_top = 280.0
+offset_right = 750.0
+offset_bottom = 350.0
+text = "You Win!
+Click to play again"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

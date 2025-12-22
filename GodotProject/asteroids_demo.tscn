@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://asteroids_demo"]
+
+[node name="AsteroidsGame" type="AsteroidsGame"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.02, 0.02, 0.05, 1)
+
+[node name="GameArea" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 300.0
+offset_top = 10.0
+offset_right = 750.0
+offset_bottom = 30.0
+text = "Asteroids - Arrows to fly, Space to shoot"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 150.0
+offset_bottom = 85.0
+text = "Score: 0"
+
+[node name="LivesLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 150.0
+offset_bottom = 115.0
+text = "Lives: 3"
+
+[node name="LevelLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 150.0
+offset_bottom = 145.0
+text = "Level: 1"
+
+[node name="GameOverLabel" type="Label" parent="UI"]
+visible = false
+offset_left = 300.0
+offset_top = 280.0
+offset_right = 750.0
+offset_bottom = 350.0
+text = "Game Over!
+Press SPACE to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

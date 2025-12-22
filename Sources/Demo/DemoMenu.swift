@@ -11,6 +11,12 @@ class DemoMenu: Control {
     @GodotNode("VBox/HBox/GamesColumn/GamesSection/Game3DButton") var game3DButton: Button?
     @GodotNode("VBox/HBox/GamesColumn/GamesSection/Game2DButton") var game2DButton: Button?
     @GodotNode("VBox/HBox/GamesColumn/GamesSection/PlatformerButton") var platformerButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/SnakeButton") var snakeButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/BreakoutButton") var breakoutButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/MemoryButton") var memoryButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/AsteroidsButton") var asteroidsButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/DungeonButton") var dungeonButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/RhythmButton") var rhythmButton: Button?
 
     // MARK: - Node References (Systems)
 
@@ -40,6 +46,12 @@ class DemoMenu: Control {
         $game3DButton.configure(owner: self)
         $game2DButton.configure(owner: self)
         $platformerButton.configure(owner: self)
+        $snakeButton.configure(owner: self)
+        $breakoutButton.configure(owner: self)
+        $memoryButton.configure(owner: self)
+        $asteroidsButton.configure(owner: self)
+        $dungeonButton.configure(owner: self)
+        $rhythmButton.configure(owner: self)
 
         // Systems
         $audioButton.configure(owner: self)
@@ -66,7 +78,7 @@ class DemoMenu: Control {
         ╔═══════════════════════════════════════════╗
         ║       SwiftGodotKit Demo Suite            ║
         ╠═══════════════════════════════════════════╣
-        ║  15 demos • CorvidLabs Swift packages     ║
+        ║  21 demos • CorvidLabs Swift packages     ║
         ║  Select a demo to explore!                ║
         ╚═══════════════════════════════════════════╝
 
@@ -87,6 +99,30 @@ class DemoMenu: Control {
 
         platformerButton?.on("pressed") { [weak self] in
             self?.loadScene("res://platformer_demo.tscn")
+        }
+
+        snakeButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://snake_demo.tscn")
+        }
+
+        breakoutButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://breakout_demo.tscn")
+        }
+
+        memoryButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://memory_demo.tscn")
+        }
+
+        asteroidsButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://asteroids_demo.tscn")
+        }
+
+        dungeonButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://dungeon_demo.tscn")
+        }
+
+        rhythmButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://rhythm_demo.tscn")
         }
 
         // Systems

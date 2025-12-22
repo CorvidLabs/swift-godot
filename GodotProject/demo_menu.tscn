@@ -82,6 +82,36 @@ custom_minimum_size = Vector2(180, 35)
 layout_mode = 2
 text = "Platformer"
 
+[node name="SnakeButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Snake"
+
+[node name="BreakoutButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Breakout"
+
+[node name="MemoryButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Memory Match"
+
+[node name="AsteroidsButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Asteroids"
+
+[node name="DungeonButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Dungeon Crawler"
+
+[node name="RhythmButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Rhythm Tapper"
+
 [node name="SystemsColumn" type="VBoxContainer" parent="VBox/HBox"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -201,5 +231,5 @@ offset_left = -200.0
 offset_top = -40.0
 offset_right = 200.0
 offset_bottom = -15.0
-text = "15 demos showcasing SwiftGodotKit + CorvidLabs packages"
+text = "21 demos showcasing SwiftGodotKit + CorvidLabs packages"
 horizontal_alignment = 1

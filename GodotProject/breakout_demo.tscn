@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://breakout_demo"]
+
+[node name="BreakoutGame" type="BreakoutGame"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.02, 0.02, 0.05, 1)
+
+[node name="GameArea" type="Node2D" parent="."]
+position = Vector2(112, 25)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 300.0
+offset_top = 10.0
+offset_right = 750.0
+offset_bottom = 30.0
+text = "Breakout - Arrow keys to move, Space to launch"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+offset_left = 920.0
+offset_top = 50.0
+offset_right = 1020.0
+offset_bottom = 75.0
+text = "Score: 0"
+
+[node name="LivesLabel" type="Label" parent="UI"]
+offset_left = 920.0
+offset_top = 80.0
+offset_right = 1020.0
+offset_bottom = 105.0
+text = "Lives: 3"
+
+[node name="GameOverLabel" type="Label" parent="UI"]
+visible = false
+offset_left = 300.0
+offset_top = 280.0
+offset_right = 750.0
+offset_bottom = 350.0
+text = "Game Over!
+Press SPACE to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]
