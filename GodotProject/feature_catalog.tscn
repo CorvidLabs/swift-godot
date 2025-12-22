@@ -79,3 +79,5 @@ offset_bottom = 50.0
 text = "← Back to Menu"
 
 [node name="TestNodes" type="Node" parent="."]
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

@@ -10,7 +10,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.1, 0.1, 0.15, 1)
+color = Color(0.08, 0.08, 0.12, 1)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -18,9 +18,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -200.0
-offset_top = 50.0
+offset_top = 30.0
 offset_right = 200.0
-offset_bottom = 100.0
+offset_bottom = 70.0
 text = "SwiftGodotKit Demo Suite"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -31,9 +31,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -250.0
-offset_top = 100.0
+offset_top = 70.0
 offset_right = 250.0
-offset_bottom = 130.0
+offset_bottom = 95.0
 text = "SwiftUI-inspired patterns for Godot game development"
 horizontal_alignment = 1
 
@@ -44,35 +44,108 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -100.0
-offset_right = 150.0
-offset_bottom = 150.0
+offset_left = -350.0
+offset_top = -180.0
+offset_right = 350.0
+offset_bottom = 220.0
 
-[node name="Game3DButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(300, 40)
+[node name="HBox" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
-text = "3D Game Demo"
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="Game2DButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(300, 40)
+[node name="GamesColumn" type="VBoxContainer" parent="VBox/HBox"]
 layout_mode = 2
-text = "2D Game Demo"
+theme_override_constants/separation = 8
 
-[node name="AsyncButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(300, 40)
+[node name="GamesLabel" type="Label" parent="VBox/HBox/GamesColumn"]
 layout_mode = 2
-text = "Async Patterns Showcase"
+text = "Games"
+horizontal_alignment = 1
 
-[node name="PlatformerButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(300, 40)
+[node name="GamesSection" type="VBoxContainer" parent="VBox/HBox/GamesColumn"]
 layout_mode = 2
-text = "Platformer Demo"
+theme_override_constants/separation = 5
 
-[node name="CatalogButton" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(300, 40)
+[node name="Game3DButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "3D Game"
+
+[node name="Game2DButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "2D Game"
+
+[node name="PlatformerButton" type="Button" parent="VBox/HBox/GamesColumn/GamesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Platformer"
+
+[node name="SystemsColumn" type="VBoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SystemsLabel" type="Label" parent="VBox/HBox/SystemsColumn"]
+layout_mode = 2
+text = "Core Systems"
+horizontal_alignment = 1
+
+[node name="SystemsSection" type="VBoxContainer" parent="VBox/HBox/SystemsColumn"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="AudioButton" type="Button" parent="VBox/HBox/SystemsColumn/SystemsSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Audio"
+
+[node name="TweenButton" type="Button" parent="VBox/HBox/SystemsColumn/SystemsSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Tween & Animation"
+
+[node name="CameraButton" type="Button" parent="VBox/HBox/SystemsColumn/SystemsSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Camera Effects"
+
+[node name="ParticlesButton" type="Button" parent="VBox/HBox/SystemsColumn/SystemsSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Particles & VFX"
+
+[node name="FeaturesColumn" type="VBoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FeaturesLabel" type="Label" parent="VBox/HBox/FeaturesColumn"]
+layout_mode = 2
+text = "Features"
+horizontal_alignment = 1
+
+[node name="FeaturesSection" type="VBoxContainer" parent="VBox/HBox/FeaturesColumn"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="AsyncButton" type="Button" parent="VBox/HBox/FeaturesColumn/FeaturesSection"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+text = "Async Patterns"
+
+[node name="CatalogButton" type="Button" parent="VBox/HBox/FeaturesColumn/FeaturesSection"]
+custom_minimum_size = Vector2(180, 35)
 layout_mode = 2
 text = "Feature Catalog"
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HintLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Press ESC in any demo to see controls"
+horizontal_alignment = 1
 
 [node name="Footer" type="Label" parent="."]
 layout_mode = 1
@@ -82,8 +155,8 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -200.0
-offset_top = -50.0
+offset_top = -40.0
 offset_right = 200.0
-offset_bottom = -20.0
-text = "Press a button to explore"
+offset_bottom = -15.0
+text = "9 demos showcasing SwiftGodotKit capabilities"
 horizontal_alignment = 1

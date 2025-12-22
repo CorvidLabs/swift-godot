@@ -35,3 +35,5 @@ offset_top = 20.0
 offset_right = 580.0
 offset_bottom = 40.0
 text = "Wave 1"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

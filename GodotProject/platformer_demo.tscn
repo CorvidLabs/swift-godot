@@ -47,3 +47,5 @@ offset_top = 20.0
 offset_right = 150.0
 offset_bottom = 50.0
 text = "← Back to Menu"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

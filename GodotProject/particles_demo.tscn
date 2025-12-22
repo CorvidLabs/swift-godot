@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://particles_demo"]
+
+[node name="ParticlesShowcase" type="ParticlesShowcase"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 350.0
+offset_top = 20.0
+offset_right = 700.0
+offset_bottom = 50.0
+text = "Particles Demo - Click to spawn, Hold right-click for trail"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 500.0
+offset_bottom = 90.0
+text = "Click buttons or click anywhere to spawn particles!"
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="Buttons" type="HBoxContainer" parent="UI"]
+offset_left = 350.0
+offset_top = 550.0
+offset_right = 700.0
+offset_bottom = 585.0
+alignment = 1
+
+[node name="ExplosionBtn" type="Button" parent="UI/Buttons"]
+custom_minimum_size = Vector2(90, 30)
+text = "Explosion"
+
+[node name="FireBtn" type="Button" parent="UI/Buttons"]
+custom_minimum_size = Vector2(90, 30)
+text = "Fire"
+
+[node name="SparkBtn" type="Button" parent="UI/Buttons"]
+custom_minimum_size = Vector2(90, 30)
+text = "Sparks"
+
+[node name="ClearBtn" type="Button" parent="UI/Buttons"]
+custom_minimum_size = Vector2(90, 30)
+text = "Clear All"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

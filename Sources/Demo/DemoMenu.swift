@@ -6,21 +6,40 @@ import SwiftGodotKit
 @Godot
 class DemoMenu: Control {
 
-    // MARK: - Node References
+    // MARK: - Node References (Games)
 
-    @GodotNode("VBox/Game3DButton") var game3DButton: Button?
-    @GodotNode("VBox/Game2DButton") var game2DButton: Button?
-    @GodotNode("VBox/AsyncButton") var asyncButton: Button?
-    @GodotNode("VBox/PlatformerButton") var platformerButton: Button?
-    @GodotNode("VBox/CatalogButton") var catalogButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/Game3DButton") var game3DButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/Game2DButton") var game2DButton: Button?
+    @GodotNode("VBox/HBox/GamesColumn/GamesSection/PlatformerButton") var platformerButton: Button?
+
+    // MARK: - Node References (Systems)
+
+    @GodotNode("VBox/HBox/SystemsColumn/SystemsSection/AudioButton") var audioButton: Button?
+    @GodotNode("VBox/HBox/SystemsColumn/SystemsSection/TweenButton") var tweenButton: Button?
+    @GodotNode("VBox/HBox/SystemsColumn/SystemsSection/CameraButton") var cameraButton: Button?
+    @GodotNode("VBox/HBox/SystemsColumn/SystemsSection/ParticlesButton") var particlesButton: Button?
+
+    // MARK: - Node References (Features)
+
+    @GodotNode("VBox/HBox/FeaturesColumn/FeaturesSection/AsyncButton") var asyncButton: Button?
+    @GodotNode("VBox/HBox/FeaturesColumn/FeaturesSection/CatalogButton") var catalogButton: Button?
 
     // MARK: - Lifecycle
 
     override func _ready() {
+        // Games
         $game3DButton.configure(owner: self)
         $game2DButton.configure(owner: self)
-        $asyncButton.configure(owner: self)
         $platformerButton.configure(owner: self)
+
+        // Systems
+        $audioButton.configure(owner: self)
+        $tweenButton.configure(owner: self)
+        $cameraButton.configure(owner: self)
+        $particlesButton.configure(owner: self)
+
+        // Features
+        $asyncButton.configure(owner: self)
         $catalogButton.configure(owner: self)
 
         setupButtons()
@@ -39,6 +58,7 @@ class DemoMenu: Control {
     // MARK: - Setup
 
     private func setupButtons() {
+        // Games
         game3DButton?.on("pressed") { [weak self] in
             self?.loadScene("res://demo.tscn")
         }
@@ -47,12 +67,30 @@ class DemoMenu: Control {
             self?.loadScene("res://demo2d.tscn")
         }
 
-        asyncButton?.on("pressed") { [weak self] in
-            self?.loadScene("res://async_demo.tscn")
-        }
-
         platformerButton?.on("pressed") { [weak self] in
             self?.loadScene("res://platformer_demo.tscn")
+        }
+
+        // Systems
+        audioButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://audio_demo.tscn")
+        }
+
+        tweenButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://tween_demo.tscn")
+        }
+
+        cameraButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://camera_demo.tscn")
+        }
+
+        particlesButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://particles_demo.tscn")
+        }
+
+        // Features
+        asyncButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://async_demo.tscn")
         }
 
         catalogButton?.on("pressed") { [weak self] in

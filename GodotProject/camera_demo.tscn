@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://camera_demo"]
+
+[node name="CameraShowcase" type="CameraShowcase"]
+
+[node name="FollowCamera" type="FollowCamera" parent="."]
+unique_name_in_owner = true
+position = Vector2(512, 300)
+
+[node name="CameraTarget" type="CameraTarget" parent="."]
+unique_name_in_owner = true
+position = Vector2(512, 300)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 350.0
+offset_top = 20.0
+offset_right = 700.0
+offset_bottom = 50.0
+text = "Camera Demo - WASD to move, Click to shake, Scroll to zoom"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 500.0
+offset_bottom = 90.0
+text = "Move with WASD, Click to shake, Scroll to zoom"
+
+[node name="ZoomLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 120.0
+text = "Zoom: 1.0x"
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="Buttons" type="HBoxContainer" parent="UI"]
+offset_left = 700.0
+offset_top = 20.0
+offset_right = 1000.0
+offset_bottom = 55.0
+
+[node name="ShakeButton" type="Button" parent="UI/Buttons"]
+custom_minimum_size = Vector2(80, 30)
+text = "Shake"
+
+[node name="ResetButton" type="Button" parent="UI/Buttons"]
+custom_minimum_size = Vector2(80, 30)
+text = "Reset"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]
