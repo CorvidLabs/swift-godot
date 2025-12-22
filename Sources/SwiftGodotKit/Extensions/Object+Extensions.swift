@@ -4,25 +4,67 @@ import SwiftGodot
 
 public extension Object {
 
-    /// Connect to signal with handler.
+    /// Connects a handler to a signal.
+    ///
+    /// The handler will be called each time the signal is emitted.
+    ///
+    /// - Parameters:
+    ///   - signal: The signal name to connect to.
+    ///   - handler: The closure to call when the signal is emitted.
+    /// - Returns: A `GodotError` indicating success or failure.
+    ///
+    /// ```swift
+    /// button.on("pressed") {
+    ///     print("Button pressed!")
+    /// }
+    /// ```
     @discardableResult
     func on(_ signal: StringName, handler: @escaping () -> Void) -> GodotError {
         connect(signal: signal, callable: Callable { _ in handler(); return nil })
     }
 
-    /// Connect to signal (string convenience).
+    /// Connects a handler to a signal using a string name.
+    ///
+    /// - Parameters:
+    ///   - signal: The signal name as a String.
+    ///   - handler: The closure to call when the signal is emitted.
+    /// - Returns: A `GodotError` indicating success or failure.
     @discardableResult
     func on(_ signal: String, handler: @escaping () -> Void) -> GodotError {
         on(StringName(signal), handler: handler)
     }
 
-    /// Connect to typed signal.
+    /// Connects a handler to a typed signal definition.
+    ///
+    /// - Parameters:
+    ///   - signal: The typed signal definition.
+    ///   - handler: The closure to call when the signal is emitted.
+    /// - Returns: A `GodotError` indicating success or failure.
+    ///
+    /// ```swift
+    /// player.on(Player.died) {
+    ///     showGameOver()
+    /// }
+    /// ```
     @discardableResult
     func on(_ signal: Signal0, handler: @escaping () -> Void) -> GodotError {
         on(signal.name, handler: handler)
     }
 
-    /// One-shot connection (auto-disconnects after first fire).
+    /// Connects a one-shot handler that disconnects after first invocation.
+    ///
+    /// The handler will be called only once, then automatically disconnected.
+    ///
+    /// - Parameters:
+    ///   - signal: The signal name to connect to.
+    ///   - handler: The closure to call when the signal is emitted.
+    /// - Returns: A `GodotError` indicating success or failure.
+    ///
+    /// ```swift
+    /// animation.once("animation_finished") {
+    ///     enemy.queueFree()
+    /// }
+    /// ```
     @discardableResult
     func once(_ signal: StringName, handler: @escaping () -> Void) -> GodotError {
         connect(
@@ -32,19 +74,36 @@ public extension Object {
         )
     }
 
-    /// One-shot connection (string convenience).
+    /// Connects a one-shot handler using a string name.
+    ///
+    /// - Parameters:
+    ///   - signal: The signal name as a String.
+    ///   - handler: The closure to call when the signal is emitted.
+    /// - Returns: A `GodotError` indicating success or failure.
     @discardableResult
     func once(_ signal: String, handler: @escaping () -> Void) -> GodotError {
         once(StringName(signal), handler: handler)
     }
 
-    /// One-shot typed signal connection.
+    /// Connects a one-shot handler to a typed signal definition.
+    ///
+    /// - Parameters:
+    ///   - signal: The typed signal definition.
+    ///   - handler: The closure to call when the signal is emitted.
+    /// - Returns: A `GodotError` indicating success or failure.
     @discardableResult
     func once(_ signal: Signal0, handler: @escaping () -> Void) -> GodotError {
         once(signal.name, handler: handler)
     }
 
-    /// Deferred connection (called at end of frame).
+    /// Connects a deferred handler that runs at the end of the frame.
+    ///
+    /// Useful when you need to ensure other signal handlers complete first.
+    ///
+    /// - Parameters:
+    ///   - signal: The signal name to connect to.
+    ///   - handler: The closure to call when the signal is emitted.
+    /// - Returns: A `GodotError` indicating success or failure.
     @discardableResult
     func onDeferred(_ signal: StringName, handler: @escaping () -> Void) -> GodotError {
         connect(
@@ -59,22 +118,34 @@ public extension Object {
 
 public extension Object {
 
-    /// Whether object has signal.
+    /// Returns whether this object has the specified signal.
+    ///
+    /// - Parameter signal: The signal name to check.
+    /// - Returns: `true` if the signal exists on this object.
     func has(signal: StringName) -> Bool {
         hasSignal(signal)
     }
 
-    /// Whether object has signal (string convenience).
+    /// Returns whether this object has the specified signal.
+    ///
+    /// - Parameter signal: The signal name as a String.
+    /// - Returns: `true` if the signal exists on this object.
     func has(signal: String) -> Bool {
         has(signal: StringName(signal))
     }
 
-    /// Whether signal has any connections.
+    /// Returns whether the signal has any connections.
+    ///
+    /// - Parameter signal: The signal name to check.
+    /// - Returns: `true` if at least one handler is connected.
     func hasConnections(for signal: StringName) -> Bool {
         !getSignalConnectionList(signal: signal).isEmpty()
     }
 
-    /// Connection count for signal.
+    /// Returns the number of connections for a signal.
+    ///
+    /// - Parameter signal: The signal name to check.
+    /// - Returns: The number of connected handlers.
     func connectionCount(for signal: StringName) -> Int {
         Int(getSignalConnectionList(signal: signal).size())
     }
@@ -84,7 +155,7 @@ public extension Object {
 
 public extension Object {
 
-    /// Instance ID as UInt.
+    /// The unique instance ID of this object as a UInt.
     var instanceID: UInt { UInt(getInstanceId()) }
 }
 
@@ -92,7 +163,18 @@ public extension Object {
 
 public extension Object {
 
-    /// Type-safe metadata subscript.
+    /// Type-safe subscript access to object metadata.
+    ///
+    /// Metadata provides a way to attach arbitrary data to Godot objects.
+    ///
+    /// ```swift
+    /// node[meta: "score"] = Variant(100)
+    /// if let score = node[meta: "score"]?.asInt() {
+    ///     print("Score: \(score)")
+    /// }
+    /// ```
+    ///
+    /// - Parameter key: The metadata key.
     subscript(meta key: String) -> Variant? {
         get {
             let name = StringName(key)
@@ -109,7 +191,10 @@ public extension Object {
         }
     }
 
-    /// Check if metadata exists.
+    /// Returns whether metadata exists for the given key.
+    ///
+    /// - Parameter key: The metadata key to check.
+    /// - Returns: `true` if metadata exists for this key.
     func hasMeta(_ key: String) -> Bool {
         hasMeta(name: StringName(key))
     }
@@ -119,17 +204,27 @@ public extension Object {
 
 public extension Object {
 
-    /// Emit signal with no arguments.
+    /// Emits a typed signal with no arguments.
+    ///
+    /// - Parameter signal: The signal definition to emit.
+    ///
+    /// ```swift
+    /// emit(Player.died)
+    /// ```
     func emit(_ signal: Signal0) {
         emitSignal(signal.name)
     }
 
-    /// Emit signal by name.
+    /// Emits a signal by name.
+    ///
+    /// - Parameter signal: The signal name to emit.
     func emit(_ signal: StringName) {
         emitSignal(signal)
     }
 
-    /// Emit signal by name (string convenience).
+    /// Emits a signal by string name.
+    ///
+    /// - Parameter signal: The signal name as a String.
     func emit(_ signal: String) {
         emitSignal(StringName(signal))
     }
