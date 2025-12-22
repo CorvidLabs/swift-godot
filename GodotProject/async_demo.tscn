@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://async_demo"]
+
+[node name="AsyncShowcase" type="AsyncShowcase"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.12, 0.18, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 60.0
+text = "Async Patterns Showcase"
+horizontal_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+
+[node name="StatusLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Ready! Select a demo pattern."
+horizontal_alignment = 1
+
+[node name="CounterLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Counter: 0"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="AwaitButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(90, 35)
+layout_mode = 2
+text = "Await"
+
+[node name="StreamButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(90, 35)
+layout_mode = 2
+text = "Stream"
+
+[node name="FrameButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(90, 35)
+layout_mode = 2
+text = "Frames"
+
+[node name="ParallelButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(90, 35)
+layout_mode = 2
+text = "Parallel"
+
+[node name="Description" type="RichTextLabel" parent="VBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "• Await: Uses SignalAwaiter.wait() to await button press
+• Stream: Uses AsyncSignal for-await-in loop on timer
+• Frames: Uses GodotTask.nextFrame() and waitGodot()
+• Parallel: Uses withGodotTaskGroup for concurrent tasks"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"

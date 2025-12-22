@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://feature_catalog"]
+
+[node name="FeatureCatalog" type="FeatureCatalog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.12, 0.1, 0.15, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "Feature Catalog"
+horizontal_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 180.0
+
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="NodeExtBtn" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(110, 35)
+layout_mode = 2
+text = "Node Ext"
+
+[node name="MetadataBtn" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(110, 35)
+layout_mode = 2
+text = "Metadata"
+
+[node name="ContextBtn" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(110, 35)
+layout_mode = 2
+text = "Context"
+
+[node name="SignalsBtn" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(110, 35)
+layout_mode = 2
+text = "Signals"
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="OutputLabel" type="Label" parent="VBox"]
+custom_minimum_size = Vector2(500, 280)
+layout_mode = 2
+text = "Feature Catalog ready!
+Select a feature to explore."
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="TestNodes" type="Node" parent="."]

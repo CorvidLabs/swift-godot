@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://platformer_demo"]
+
+[node name="PlatformerScene" type="PlatformerScene"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.15, 0.2, 0.3, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 300)
+
+[node name="PlatformerPlayer" type="PlatformerPlayer" parent="."]
+unique_name_in_owner = true
+position = Vector2(400, 100)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 90.0
+text = "Score: 0"
+
+[node name="CoinsLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 120.0
+text = "Coins: 0"
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 350.0
+offset_top = 20.0
+offset_right = 700.0
+offset_bottom = 50.0
+text = "Platformer Demo - Arrow keys to move, Space to jump"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
