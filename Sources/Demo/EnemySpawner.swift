@@ -14,23 +14,25 @@ class EnemySpawner: Node3D, SignalEmitting {
     @GodotState var activeEnemyCount: Int = 0
     @GodotState var isSpawning: Bool = false
 
-    private var spawnedEnemies: [Node] = []
+    private var spawnedEnemies: [Enemy] = []
     private var spawnQueue: Int = 0
     private var spawnTimer: Double = 0
 
     // MARK: - Configuration
 
-    var spawnDelay: Double = 1.0
-    var maxConcurrentEnemies: Int = 10
+    var spawnDelay: Double = 0.5
+    var maxConcurrentEnemies: Int = 20
 
     // MARK: - Node References
 
     @GodotNode("SpawnPoints") var spawnPointsContainer: Node3D?
+    @GodotNode(.unique("Player")) var player: Player?
 
     // MARK: - Lifecycle
 
     override func _ready() {
         $spawnPointsContainer.configure(owner: self)
+        $player.configure(owner: self)
     }
 
     override func _process(delta: Double) {
@@ -64,8 +66,9 @@ class EnemySpawner: Node3D, SignalEmitting {
     }
 
     private func spawnEnemy() {
-        let enemy = CharacterBody3D()
+        let enemy = Enemy()
         enemy.name = "Enemy_\(spawnedEnemies.count)"
+        enemy.target = player
 
         // Get a random spawn point
         if let spawnPoint = getRandomSpawnPoint() {
@@ -114,6 +117,115 @@ class EnemySpawner: Node3D, SignalEmitting {
         activeEnemyCount = 0
         spawnQueue = 0
         isSpawning = false
+    }
+}
+
+// MARK: - Enemy
+
+/// Enemy that chases the player and deals damage on contact
+@Godot
+class Enemy: CharacterBody3D {
+
+    // MARK: - Signals
+
+    static let defeated = Signal0("defeated")
+
+    // MARK: - State
+
+    @GodotState var health: Int = 1
+    @GodotState var speed: Float = 3.0
+
+    weak var target: Player?
+
+    private var mesh: MeshInstance3D?
+    private var collision: CollisionShape3D?
+    private var attackCooldown: Double = 0
+
+    // MARK: - Lifecycle
+
+    override func _ready() {
+        setupVisuals()
+        setupCollision()
+    }
+
+    override func _physicsProcess(delta: Double) {
+        moveTowardTarget(delta: delta)
+        checkPlayerCollision(delta: delta)
+    }
+
+    // MARK: - Setup
+
+    private func setupVisuals() {
+        let meshInstance = MeshInstance3D()
+
+        let capsule = CapsuleMesh()
+        capsule.radius = 0.4
+        capsule.height = 1.5
+        meshInstance.mesh = capsule
+
+        let material = StandardMaterial3D()
+        material.albedoColor = Color(r: 0.9, g: 0.2, b: 0.2, a: 1.0)
+        meshInstance.materialOverride = material
+
+        meshInstance.position = Vector3(x: 0, y: 0.75, z: 0)
+        addChild(node: meshInstance)
+        self.mesh = meshInstance
+    }
+
+    private func setupCollision() {
+        let shape = CollisionShape3D()
+
+        let capsule = CapsuleShape3D()
+        capsule.radius = 0.4
+        capsule.height = 1.5
+        shape.shape = capsule
+
+        shape.position = Vector3(x: 0, y: 0.75, z: 0)
+        addChild(node: shape)
+        self.collision = shape
+    }
+
+    // MARK: - AI
+
+    private func moveTowardTarget(delta: Double) {
+        guard let target = target, target.isAlive else { return }
+
+        let direction = (target.globalPosition - globalPosition).normalized()
+        let moveVelocity = Vector3(x: direction.x * speed, y: 0, z: direction.z * speed)
+
+        velocity = moveVelocity
+        moveAndSlide()
+    }
+
+    private func checkPlayerCollision(delta: Double) {
+        attackCooldown -= delta
+        guard attackCooldown <= 0 else { return }
+
+        guard let target = target, target.isAlive else { return }
+
+        let distance = globalPosition.distanceTo(target.globalPosition)
+        if distance < 1.2 {
+            target.takeDamage(10)
+            attackCooldown = 1.0
+
+            // Knockback
+            let knockback = (globalPosition - target.globalPosition).normalized() * 2
+            globalPosition += knockback
+        }
+    }
+
+    // MARK: - Damage
+
+    func takeDamage(_ amount: Int) {
+        health -= amount
+        if health <= 0 {
+            die()
+        }
+    }
+
+    private func die() {
+        emitSignal(Self.defeated.name)
+        queueFree()
     }
 }
 

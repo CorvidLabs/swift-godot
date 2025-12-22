@@ -21,7 +21,7 @@ class GameManager: Node {
     // MARK: - Node References
 
     @GodotNode(.unique("Player")) var player: Player?
-    @GodotNode("Spawners/EnemySpawner") var enemySpawner: Node?
+    @GodotNode(.unique("EnemySpawner")) var enemySpawner: EnemySpawner?
     @GodotNode("UI/GameOverScreen") var gameOverScreen: Control?
     @GodotNode("UI/WaveLabel") var waveLabel: Label?
 
@@ -29,10 +29,7 @@ class GameManager: Node {
 
     private var isRunning: Bool = false
     private var waveTimer: Double = 0
-    private var spawnTimer: Double = 0
-    private var enemiesRemainingInWave: Int = 0
-    private let waveDelay: Double = 2.0
-    private let spawnDelay: Double = 0.5
+    private let waveDelay: Double = 3.0
 
     // MARK: - Lifecycle
 
@@ -77,14 +74,8 @@ class GameManager: Node {
     }
 
     private func processWaveLogic(delta: Double) {
-        if enemiesRemainingInWave > 0 {
-            spawnTimer -= delta
-            if spawnTimer <= 0 {
-                spawnEnemy()
-                enemiesRemainingInWave -= 1
-                spawnTimer = spawnDelay
-            }
-        } else {
+        // Wait for current wave to finish before starting next
+        if let spawner = enemySpawner, !spawner.isSpawning && spawner.activeEnemyCount == 0 {
             waveTimer -= delta
             if waveTimer <= 0 {
                 startNextWave()
@@ -98,13 +89,9 @@ class GameManager: Node {
 
         GodotContext.log("Starting wave \(currentWave)")
 
-        enemiesRemainingInWave = currentWave * 3
-        spawnTimer = 0
+        let enemyCount = currentWave * 2 + 1
+        enemySpawner?.startWave(enemyCount: enemyCount)
         waveTimer = waveDelay
-    }
-
-    private func spawnEnemy() {
-        GodotContext.log("Spawning enemy")
     }
 
     // MARK: - Signal Handling
