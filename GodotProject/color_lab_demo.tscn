@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://color_lab_demo"]
+
+[node name="ColorLabShowcase" type="ColorLabShowcase"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.08, 0.12, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "Color Lab Demo"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 70.0
+text = "swift-color"
+horizontal_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 80.0
+offset_right = 280.0
+offset_bottom = 200.0
+
+[node name="ButtonRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="HarmonyBtn" type="Button" parent="VBox/ButtonRow"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+text = "Harmony"
+
+[node name="AccessBtn" type="Button" parent="VBox/ButtonRow"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+text = "Accessibility"
+
+[node name="BlindBtn" type="Button" parent="VBox/ButtonRow"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+text = "Blindness"
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ButtonRow2" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="GradientBtn" type="Button" parent="VBox/ButtonRow2"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+text = "Gradients"
+
+[node name="BlendBtn" type="Button" parent="VBox/ButtonRow2"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+text = "Blend"
+
+[node name="RandomBtn" type="Button" parent="VBox/ButtonRow2"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+text = "Random"
+
+[node name="Spacer2" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Explore color science and accessibility!"
+horizontal_alignment = 1
+
+[node name="Canvas" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 280.0
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 50.0
+text = "← Back to Menu"
+
+[node name="PauseMenu" type="PauseMenu" parent="."]

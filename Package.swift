@@ -29,7 +29,16 @@ let package = Package(
         .package(
             url: "https://github.com/swiftlang/swift-docc-plugin.git",
             from: "1.4.0"
-        )
+        ),
+        // CorvidLabs Swift packages (local paths for development)
+        .package(path: "../swift-game"),
+        .package(path: "../swift-art"),
+        .package(path: "../swift-color"),
+        .package(path: "../swift-music"),
+        .package(path: "../swift-qr"),
+        .package(path: "../swift-graph"),
+        .package(path: "../swift-parse"),
+        .package(path: "../swift-stats")
     ],
     targets: [
         .target(
@@ -40,7 +49,18 @@ let package = Package(
         ),
         .target(
             name: "Demo",
-            dependencies: ["SwiftGodotKit"],
+            dependencies: [
+                "SwiftGodotKit",
+                // CorvidLabs packages
+                .product(name: "Game", package: "swift-game"),
+                .product(name: "Art", package: "swift-art"),
+                .product(name: "Color", package: "swift-color"),
+                .product(name: "Music", package: "swift-music"),
+                .product(name: "SwiftQR", package: "swift-qr"),
+                .product(name: "Graph", package: "swift-graph"),
+                .product(name: "Parse", package: "swift-parse"),
+                .product(name: "Stats", package: "swift-stats")
+            ],
             path: "Sources/Demo",
             plugins: [
                 .plugin(name: "EntryPointGeneratorPlugin", package: "SwiftGodot")

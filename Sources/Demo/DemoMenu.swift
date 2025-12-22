@@ -24,6 +24,15 @@ class DemoMenu: Control {
     @GodotNode("VBox/HBox/FeaturesColumn/FeaturesSection/AsyncButton") var asyncButton: Button?
     @GodotNode("VBox/HBox/FeaturesColumn/FeaturesSection/CatalogButton") var catalogButton: Button?
 
+    // MARK: - Node References (CorvidLabs)
+
+    @GodotNode("VBox/HBox/CorvidColumn/CorvidSection/ArtButton") var artButton: Button?
+    @GodotNode("VBox/HBox/CorvidColumn/CorvidSection/ColorButton") var colorButton: Button?
+    @GodotNode("VBox/HBox/CorvidColumn/CorvidSection/GameButton") var gameButton: Button?
+    @GodotNode("VBox/HBox/CorvidColumn/CorvidSection/MusicButton") var musicButton: Button?
+    @GodotNode("VBox/HBox/CorvidColumn/CorvidSection/TextButton") var textButton: Button?
+    @GodotNode("VBox/HBox/CorvidColumn/CorvidSection/QRButton") var qrButton: Button?
+
     // MARK: - Lifecycle
 
     override func _ready() {
@@ -42,6 +51,14 @@ class DemoMenu: Control {
         $asyncButton.configure(owner: self)
         $catalogButton.configure(owner: self)
 
+        // CorvidLabs
+        $artButton.configure(owner: self)
+        $colorButton.configure(owner: self)
+        $gameButton.configure(owner: self)
+        $musicButton.configure(owner: self)
+        $textButton.configure(owner: self)
+        $qrButton.configure(owner: self)
+
         setupButtons()
 
         GodotContext.log("""
@@ -49,7 +66,8 @@ class DemoMenu: Control {
         ╔═══════════════════════════════════════════╗
         ║       SwiftGodotKit Demo Suite            ║
         ╠═══════════════════════════════════════════╣
-        ║  Select a demo to explore the library!    ║
+        ║  15 demos • CorvidLabs Swift packages     ║
+        ║  Select a demo to explore!                ║
         ╚═══════════════════════════════════════════╝
 
         """)
@@ -95,6 +113,31 @@ class DemoMenu: Control {
 
         catalogButton?.on("pressed") { [weak self] in
             self?.loadScene("res://feature_catalog.tscn")
+        }
+
+        // CorvidLabs
+        artButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://procedural_art_demo.tscn")
+        }
+
+        colorButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://color_lab_demo.tscn")
+        }
+
+        gameButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://game_systems_demo.tscn")
+        }
+
+        musicButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://music_theory_demo.tscn")
+        }
+
+        textButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://text_data_demo.tscn")
+        }
+
+        qrButton?.on("pressed") { [weak self] in
+            self?.loadScene("res://qr_code_demo.tscn")
         }
     }
 

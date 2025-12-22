@@ -129,14 +129,57 @@ layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="AsyncButton" type="Button" parent="VBox/HBox/FeaturesColumn/FeaturesSection"]
-custom_minimum_size = Vector2(180, 35)
+custom_minimum_size = Vector2(140, 35)
 layout_mode = 2
 text = "Async Patterns"
 
 [node name="CatalogButton" type="Button" parent="VBox/HBox/FeaturesColumn/FeaturesSection"]
-custom_minimum_size = Vector2(180, 35)
+custom_minimum_size = Vector2(140, 35)
 layout_mode = 2
 text = "Feature Catalog"
+
+[node name="CorvidColumn" type="VBoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CorvidLabel" type="Label" parent="VBox/HBox/CorvidColumn"]
+layout_mode = 2
+text = "CorvidLabs"
+horizontal_alignment = 1
+
+[node name="CorvidSection" type="VBoxContainer" parent="VBox/HBox/CorvidColumn"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ArtButton" type="Button" parent="VBox/HBox/CorvidColumn/CorvidSection"]
+custom_minimum_size = Vector2(140, 35)
+layout_mode = 2
+text = "Procedural Art"
+
+[node name="ColorButton" type="Button" parent="VBox/HBox/CorvidColumn/CorvidSection"]
+custom_minimum_size = Vector2(140, 35)
+layout_mode = 2
+text = "Color Lab"
+
+[node name="GameButton" type="Button" parent="VBox/HBox/CorvidColumn/CorvidSection"]
+custom_minimum_size = Vector2(140, 35)
+layout_mode = 2
+text = "Game Systems"
+
+[node name="MusicButton" type="Button" parent="VBox/HBox/CorvidColumn/CorvidSection"]
+custom_minimum_size = Vector2(140, 35)
+layout_mode = 2
+text = "Music Theory"
+
+[node name="TextButton" type="Button" parent="VBox/HBox/CorvidColumn/CorvidSection"]
+custom_minimum_size = Vector2(140, 35)
+layout_mode = 2
+text = "Text & Data"
+
+[node name="QRButton" type="Button" parent="VBox/HBox/CorvidColumn/CorvidSection"]
+custom_minimum_size = Vector2(140, 35)
+layout_mode = 2
+text = "QR Codes"
 
 [node name="Spacer" type="Control" parent="VBox"]
 custom_minimum_size = Vector2(0, 30)
@@ -158,5 +201,5 @@ offset_left = -200.0
 offset_top = -40.0
 offset_right = 200.0
 offset_bottom = -15.0
-text = "9 demos showcasing SwiftGodotKit capabilities"
+text = "15 demos showcasing SwiftGodotKit + CorvidLabs packages"
 horizontal_alignment = 1
