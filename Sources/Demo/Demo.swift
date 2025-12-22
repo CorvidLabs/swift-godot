@@ -75,7 +75,7 @@ class DemoScene: Node, SignalReceiving {
     }
 
     private func restartGame() {
-        getTree()?.reloadCurrentScene()
+        _ = getTree()?.reloadCurrentScene()
     }
 
     // MARK: - Debug Info

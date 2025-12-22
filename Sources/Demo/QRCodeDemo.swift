@@ -149,20 +149,15 @@ class QRCodeShowcase: Control {
             let qrCode = try QRCode.encode(currentText, errorCorrection: currentLevel)
 
             let levelName: String
-            let levelDescription: String
             switch currentLevel {
             case .low:
                 levelName = "L (Low)"
-                levelDescription = "~7% recovery"
             case .medium:
                 levelName = "M (Medium)"
-                levelDescription = "~15% recovery"
             case .quartile:
                 levelName = "Q (Quartile)"
-                levelDescription = "~25% recovery"
             case .high:
                 levelName = "H (High)"
-                levelDescription = "~30% recovery"
             }
 
             statusText = "QR v\(qrCode.version.number) • \(qrCode.size)x\(qrCode.size) • EC: \(levelName)"

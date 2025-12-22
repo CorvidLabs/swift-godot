@@ -226,8 +226,6 @@ class FeatureCatalog: Control {
 
         // Connect to signals
         var eventCount = 0
-        var lastScore = 0
-        var lastItem = ""
 
         emitter.on(SignalEmitterDemo.simpleEvent) {
             eventCount += 1
@@ -235,7 +233,7 @@ class FeatureCatalog: Control {
 
         // Note: For Signal1/2, we use the string name since Swift can't infer types
         emitter.on(SignalEmitterDemo.scoreChanged.name) {
-            lastScore = 100  // Would get from signal args
+            // Signal received (args available via signal parameters)
         }
 
         lines.append("\nConnected handlers using on(Signal0)")
