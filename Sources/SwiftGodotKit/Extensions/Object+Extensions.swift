@@ -243,16 +243,20 @@ public extension Object {
         emitSignal(signal.name)
     }
 
-    /// Emits a signal by name.
-    ///
-    /// - Parameter signal: The signal name to emit.
+    /**
+     Emits a signal by name.
+    
+     - Parameter signal: The signal name to emit.
+     */
     func emit(_ signal: StringName) {
         emitSignal(signal)
     }
 
-    /// Emits a signal by string name.
-    ///
-    /// - Parameter signal: The signal name as a String.
+    /**
+     Emits a signal by string name.
+    
+     - Parameter signal: The signal name as a String.
+     */
     func emit(_ signal: String) {
         emitSignal(StringName(signal))
     }

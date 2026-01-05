@@ -111,18 +111,22 @@ public extension Node {
         descendants.compactMap { $0 as? T }
     }
 
-    /// Returns the first child matching the given predicate.
-    ///
-    /// - Parameter predicate: A closure that returns `true` for the desired child.
-    /// - Returns: The first matching child, or `nil` if none found.
+    /**
+     Returns the first child matching the given predicate.
+    
+     - Parameter predicate: A closure that returns `true` for the desired child.
+     - Returns: The first matching child, or `nil` if none found.
+     */
     func child(where predicate: (Node) -> Bool) -> Node? {
         children.first(where: predicate)
     }
 
-    /// Returns all children matching the given predicate.
-    ///
-    /// - Parameter predicate: A closure that returns `true` for desired children.
-    /// - Returns: An array of all matching children.
+    /**
+     Returns all children matching the given predicate.
+    
+     - Parameter predicate: A closure that returns `true` for desired children.
+     - Returns: An array of all matching children.
+     */
     func children(where predicate: (Node) -> Bool) -> [Node] {
         children.filter(predicate)
     }
@@ -245,18 +249,22 @@ public extension Node {
         ancestors.lazy.compactMap { $0 as? T }.first
     }
 
-    /// Returns whether this node is an ancestor of another node.
-    ///
-    /// - Parameter node: The potential descendant.
-    /// - Returns: `true` if this node is an ancestor of the given node.
+    /**
+     Returns whether this node is an ancestor of another node.
+    
+     - Parameter node: The potential descendant.
+     - Returns: `true` if this node is an ancestor of the given node.
+     */
     func isAncestor(of node: Node) -> Bool {
         node.ancestors.contains { $0 === self }
     }
 
-    /// Returns whether this node is a descendant of another node.
-    ///
-    /// - Parameter node: The potential ancestor.
-    /// - Returns: `true` if this node is a descendant of the given node.
+    /**
+     Returns whether this node is a descendant of another node.
+    
+     - Parameter node: The potential ancestor.
+     - Returns: `true` if this node is a descendant of the given node.
+     */
     func isDescendant(of node: Node) -> Bool {
         node.isAncestor(of: self)
     }
@@ -324,17 +332,21 @@ public extension Node {
         return self
     }
 
-    /// Maps a transform over all children.
-    ///
-    /// - Parameter transform: A closure that transforms each child.
-    /// - Returns: An array of transformed results.
+    /**
+     Maps a transform over all children.
+    
+     - Parameter transform: A closure that transforms each child.
+     - Returns: An array of transformed results.
+     */
     func mapChildren<T>(_ transform: (Node) -> T) -> [T] {
         children.map(transform)
     }
 
-    /// Executes an action for each child.
-    ///
-    /// - Parameter action: A closure to execute for each child.
+    /**
+     Executes an action for each child.
+    
+     - Parameter action: A closure to execute for each child.
+     */
     func forEachChild(_ action: (Node) -> Void) {
         children.forEach(action)
     }
