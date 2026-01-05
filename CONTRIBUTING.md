@@ -2,54 +2,106 @@
 
 Thank you for your interest in contributing to SwiftGodotKit!
 
-## Reporting Issues
+## How to Contribute
 
-Before creating a new issue, please check existing GitHub Issues to avoid duplicates.
+### Reporting Issues
 
-When reporting bugs, include:
-- Clear, descriptive title
-- Steps to reproduce
-- Expected vs actual behavior
-- Swift version and platform
-- Godot version (if applicable)
+If you find a bug or have a feature request:
 
-## Pull Requests
+1. Check if the issue already exists in [GitHub Issues](https://github.com/CorvidLabs/swift-godot/issues)
+2. If not, create a new issue with:
+   - A clear, descriptive title
+   - Steps to reproduce (for bugs)
+   - Expected vs. actual behavior
+   - Swift version, Godot version, and platform information
 
-1. Fork the repository and create a branch from `main`
-2. Write clean, documented code
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a PR with a clear description
+### Submitting Pull Requests
 
-### Branch Naming
-- `feature/description` for new features
-- `fix/description` for bug fixes
-- `docs/description` for documentation
+1. **Fork the repository** and create your branch from `main`:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-## Code Standards
+2. **Make your changes**:
+   - Write clear, concise code following Swift conventions
+   - Add tests for new functionality
+   - Update documentation as needed
 
-- Follow [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
-- Use meaningful, descriptive names
-- Document public APIs
-- Use Swift 6 concurrency features (async/await, actors)
-- Ensure Sendable conformance where appropriate
+3. **Ensure tests pass**:
+   ```bash
+   swift build
+   swift test
+   ```
+
+4. **Build the demo** to verify Godot integration:
+   ```bash
+   ./scripts/build-demo.sh
+   ```
+
+5. **Commit your changes**:
+   - Use clear, descriptive commit messages
+   - Reference any related issues
+
+6. **Push to your fork** and submit a pull request
+
+## Code Style
+
+Follow the CorvidLabs Swift Conventions:
+
+- **Explicit access control** - Add `public`/`internal`/`private` to all declarations
+- **K&R brace style** - Opening brace on same line: `func foo() {`
+- **No force unwrap** - Never use `!`, `try!`, or `as!`
+- **async/await only** - No completion handlers
+- **Sendable conformance** - All types crossing concurrency boundaries
+- **Descriptive generics** - Use `Value`, `Output`, not `T`, `U`
+- **4-space indentation** - No tabs
+- **120 character line limit**
+
+### Documentation
+
+- Add documentation comments for public APIs
+- Use `///` for documentation
+- Include code examples where helpful
+
+```swift
+/// Returns the first child matching the given type.
+///
+/// - Parameter ofType: The type to search for.
+/// - Returns: The first matching child, or `nil` if none found.
+///
+/// ```swift
+/// if let healthBar = node.child(ofType: ProgressBar.self) {
+///     healthBar.value = 100
+/// }
+/// ```
+func child<T: Node>(ofType: T.Type = T.self) -> T?
+```
 
 ## Testing
 
 - Write tests for new features
 - Ensure existing tests pass
-- Run `swift test` before submitting
+- Test Godot integration with the demo project
+
+```bash
+# Run unit tests
+swift test
+
+# Build and run demo in Godot
+./scripts/build-demo.sh
+open -a Godot GodotProject/project.godot
+```
 
 ## Documentation
 
-- Update README for major features
-- Include code examples for new functionality
-- Document breaking changes
+- Update README.md if adding major features
+- Add code examples for new functionality
+- Document any breaking changes in CHANGELOG.md
+
+## Questions?
+
+Feel free to open an issue for questions or discussion!
 
 ## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
-
-## Questions?
-
-Open a GitHub Issue for any questions about contributing.

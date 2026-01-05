@@ -30,15 +30,15 @@ let package = Package(
             url: "https://github.com/swiftlang/swift-docc-plugin.git",
             from: "1.4.0"
         ),
-        // CorvidLabs Swift packages (local paths for development)
-        .package(path: "../swift-game"),
-        .package(path: "../swift-art"),
-        .package(path: "../swift-color"),
-        .package(path: "../swift-music"),
-        .package(path: "../swift-qr"),
-        .package(path: "../swift-graph"),
-        .package(path: "../swift-parse"),
-        .package(path: "../swift-stats")
+        // CorvidLabs Swift packages
+        .package(url: "https://github.com/CorvidLabs/swift-game.git", from: "0.1.0"),
+        .package(url: "https://github.com/CorvidLabs/swift-art.git", from: "0.1.0"),
+        .package(url: "https://github.com/CorvidLabs/swift-color.git", from: "0.1.0"),
+        .package(url: "https://github.com/CorvidLabs/swift-music.git", from: "0.1.0"),
+        .package(url: "https://github.com/CorvidLabs/swift-qr.git", from: "0.1.0"),
+        .package(url: "https://github.com/CorvidLabs/swift-graph.git", from: "0.1.0"),
+        .package(url: "https://github.com/CorvidLabs/swift-parse.git", from: "0.1.0"),
+        .package(url: "https://github.com/CorvidLabs/swift-stats.git", from: "0.1.0")
     ],
     targets: [
         .target(
