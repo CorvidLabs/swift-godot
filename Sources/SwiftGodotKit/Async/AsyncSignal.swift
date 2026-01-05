@@ -89,7 +89,7 @@ public final class AsyncSignalIterator<Element: Sendable>: AsyncIteratorProtocol
         }
 
         self.callable = callable
-        source.connect(signal: signalName, callable: callable)
+        _ = source.connect(signal: signalName, callable: callable)
     }
 
     public func next() async -> Element? {

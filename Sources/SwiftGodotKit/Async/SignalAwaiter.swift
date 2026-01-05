@@ -28,7 +28,7 @@ public enum SignalAwaiter {
                 source.disconnect(signal: signalName, callable: callable)
                 return nil
             }
-            source.connect(signal: signalName, callable: callable, flags: UInt32(Object.ConnectFlags.oneShot.rawValue))
+            _ = source.connect(signal: signalName, callable: callable, flags: UInt32(Object.ConnectFlags.oneShot.rawValue))
         }
     }
 
@@ -57,7 +57,7 @@ public enum SignalAwaiter {
             signalReceived.wrappedValue = true
             return nil
         }
-        source.connect(signal: signalName, callable: callable, flags: UInt32(Object.ConnectFlags.oneShot.rawValue))
+        _ = source.connect(signal: signalName, callable: callable, flags: UInt32(Object.ConnectFlags.oneShot.rawValue))
 
         // Wait for timeout duration
         try await Task.sleep(for: timeout)

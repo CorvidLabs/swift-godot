@@ -72,7 +72,7 @@ public enum GodotContext {
             work()
             return nil
         }
-        object.connect(
+        _ = object.connect(
             signal: StringName(signal),
             callable: callable,
             flags: UInt32(Object.ConnectFlags.oneShot.rawValue)
