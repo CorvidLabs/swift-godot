@@ -1,19 +1,21 @@
 import SwiftGodot
 
-/// Enables awaiting Godot signals with async/await syntax.
-///
-/// ## Example
-/// ```swift
-/// // Wait for a button press
-/// await SignalAwaiter.wait(for: button, signal: "pressed")
-///
-/// // Wait with timeout
-/// let result = try await SignalAwaiter.wait(
-///     for: enemy,
-///     signal: "died",
-///     timeout: .seconds(5)
-/// )
-/// ```
+/**
+ Enables awaiting Godot signals with async/await syntax.
+
+ ## Example
+ ```swift
+ // Wait for a button press
+ await SignalAwaiter.wait(for: button, signal: "pressed")
+
+ // Wait with timeout
+ let result = try await SignalAwaiter.wait(
+     for: enemy,
+     signal: "died",
+     timeout: .seconds(5)
+ )
+ ```
+ */
 public enum SignalAwaiter {
 
     /// Wait for a signal with no return value

@@ -1,34 +1,36 @@
 import SwiftGodot
 
-/// A Godot-aware Task wrapper that integrates with Godot's lifecycle.
-///
-/// `GodotTask` ensures tasks are properly cancelled when nodes are freed
-/// and provides frame-synchronized execution options.
-///
-/// ## Example
-/// ```swift
-/// @Godot
-/// class Enemy: CharacterBody3D {
-///     private var patrolTask: GodotTask<Void>?
-///
-///     override func _ready() {
-///         patrolTask = GodotTask(owner: self) {
-///             await self.patrol()
-///         }
-///     }
-///
-///     override func _exitTree() {
-///         patrolTask?.cancel()
-///     }
-///
-///     func patrol() async {
-///         while !Task.isCancelled {
-///             await GodotTask.nextFrame()
-///             moveToNextWaypoint()
-///         }
-///     }
-/// }
-/// ```
+/**
+ A Godot-aware Task wrapper that integrates with Godot's lifecycle.
+
+ `GodotTask` ensures tasks are properly cancelled when nodes are freed
+ and provides frame-synchronized execution options.
+
+ ## Example
+ ```swift
+ @Godot
+ class Enemy: CharacterBody3D {
+     private var patrolTask: GodotTask<Void>?
+
+     override func _ready() {
+         patrolTask = GodotTask(owner: self) {
+             await self.patrol()
+         }
+     }
+
+     override func _exitTree() {
+         patrolTask?.cancel()
+     }
+
+     func patrol() async {
+         while !Task.isCancelled {
+             await GodotTask.nextFrame()
+             moveToNextWaypoint()
+         }
+     }
+ }
+ ```
+ */
 public final class GodotTask<Success: Sendable>: Sendable {
     private let task: Task<Success, any Error>
 

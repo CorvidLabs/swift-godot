@@ -1,25 +1,27 @@
 import SwiftGodot
 
-/// A protocol that defines the lifecycle and management of a Godot scene.
-///
-/// Conform to this protocol to create type-safe scene controllers with
-/// automatic resource management and lifecycle hooks.
-///
-/// ## Example
-/// ```swift
-/// class GameScene: SceneController {
-///     typealias RootNode = Node3D
-///     var rootNode: Node3D?
-///
-///     func sceneDidBecomeReady() {
-///         setupGame()
-///     }
-///
-///     func sceneDidProcess(delta: Double) {
-///         updateGameLogic(delta: delta)
-///     }
-/// }
-/// ```
+/**
+ A protocol that defines the lifecycle and management of a Godot scene.
+
+ Conform to this protocol to create type-safe scene controllers with
+ automatic resource management and lifecycle hooks.
+
+ ## Example
+ ```swift
+ class GameScene: SceneController {
+     typealias RootNode = Node3D
+     var rootNode: Node3D?
+
+     func sceneDidBecomeReady() {
+         setupGame()
+     }
+
+     func sceneDidProcess(delta: Double) {
+         updateGameLogic(delta: delta)
+     }
+ }
+ ```
+ */
 public protocol SceneController: AnyObject {
     /// The root node type for this scene
     associatedtype RootNode: Node

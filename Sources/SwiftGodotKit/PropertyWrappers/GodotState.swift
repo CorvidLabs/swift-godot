@@ -1,20 +1,22 @@
 import Foundation
 
-/// A property wrapper providing reactive state with change tracking.
-///
-/// ```swift
-/// @Godot
-/// class Player: CharacterBody3D {
-///     @GodotState var health: Int = 100
-///
-///     override func _process(delta: Double) {
-///         if $health.changed {
-///             updateHealthBar()
-///         }
-///         $health.reset()
-///     }
-/// }
-/// ```
+/**
+ A property wrapper providing reactive state with change tracking.
+
+ ```swift
+ @Godot
+ class Player: CharacterBody3D {
+     @GodotState var health: Int = 100
+
+     override func _process(delta: Double) {
+         if $health.changed {
+             updateHealthBar()
+         }
+         $health.reset()
+     }
+ }
+ ```
+ */
 @propertyWrapper
 public struct GodotState<Value: Sendable>: Sendable {
 
