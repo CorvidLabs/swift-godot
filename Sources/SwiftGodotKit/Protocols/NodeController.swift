@@ -1,25 +1,27 @@
 import SwiftGodot
 
-/// A protocol defining reactive node management with automatic child binding.
-///
-/// Use `NodeController` to create nodes with declarative child management
-/// and automatic signal connections.
-///
-/// ## Example
-/// ```swift
-/// class PlayerController: NodeController {
-///     typealias NodeType = CharacterBody3D
-///     let node = CharacterBody3D()
-///
-///     var children: [any NodeController] {
-///         [HealthBarController(), WeaponController()]
-///     }
-///
-///     func configure() {
-///         node.name = "Player"
-///     }
-/// }
-/// ```
+/**
+ A protocol defining reactive node management with automatic child binding.
+
+ Use `NodeController` to create nodes with declarative child management
+ and automatic signal connections.
+
+ ## Example
+ ```swift
+ class PlayerController: NodeController {
+     typealias NodeType = CharacterBody3D
+     let node = CharacterBody3D()
+
+     var children: [any NodeController] {
+         [HealthBarController(), WeaponController()]
+     }
+
+     func configure() {
+         node.name = "Player"
+     }
+ }
+ ```
+ */
 public protocol NodeController: AnyObject {
     /// The underlying Godot node type
     associatedtype NodeType: Node

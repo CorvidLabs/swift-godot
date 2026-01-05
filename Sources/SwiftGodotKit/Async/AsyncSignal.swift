@@ -1,14 +1,16 @@
 import SwiftGodot
 
-/// An AsyncSequence wrapper for Godot signals, enabling for-await-in loops.
-///
-/// ## Example
-/// ```swift
-/// // Stream button presses
-/// for await _ in AsyncSignal(source: button, signal: "pressed") {
-///     handleButtonPress()
-/// }
-/// ```
+/**
+ An AsyncSequence wrapper for Godot signals, enabling for-await-in loops.
+
+ ## Example
+ ```swift
+ // Stream button presses
+ for await _ in AsyncSignal(source: button, signal: "pressed") {
+     handleButtonPress()
+ }
+ ```
+ */
 public struct AsyncSignal<Element: Sendable>: AsyncSequence {
     public typealias AsyncIterator = AsyncSignalIterator<Element>
 

@@ -1,23 +1,25 @@
 import SwiftGodot
 
-/// A protocol for types that can emit Godot signals.
-///
-/// ## Example
-/// ```swift
-/// @Godot
-/// class Player: CharacterBody3D, SignalEmitting {
-///     static let healthChanged = Signal1<Int>("health_changed")
-///     static let died = Signal0("died")
-///
-///     func takeDamage(_ amount: Int) {
-///         health -= amount
-///         emitSignal(Self.healthChanged.name, Variant(health))
-///         if health <= 0 {
-///             emitSignal(Self.died.name)
-///         }
-///     }
-/// }
-/// ```
+/**
+ A protocol for types that can emit Godot signals.
+
+ ## Example
+ ```swift
+ @Godot
+ class Player: CharacterBody3D, SignalEmitting {
+     static let healthChanged = Signal1<Int>("health_changed")
+     static let died = Signal0("died")
+
+     func takeDamage(_ amount: Int) {
+         health -= amount
+         emitSignal(Self.healthChanged.name, Variant(health))
+         if health <= 0 {
+             emitSignal(Self.died.name)
+         }
+     }
+ }
+ ```
+ */
 public protocol SignalEmitting {
     /// The Godot object that owns the signals
     var signalOwner: Object { get }

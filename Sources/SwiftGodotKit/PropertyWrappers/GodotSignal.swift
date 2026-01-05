@@ -54,19 +54,21 @@ extension Signal3: @unchecked Sendable {}
 
 // MARK: - Signal Handler Property Wrapper
 
-/// Declarative signal handler binding.
-///
-/// ```swift
-/// @Godot
-/// class MyButton: Button {
-///     @GodotSignal("pressed")
-///     var onPressed: () -> Void = {}
-///
-///     override func _ready() {
-///         $onPressed.bind(to: self)
-///     }
-/// }
-/// ```
+/**
+ Declarative signal handler binding.
+
+ ```swift
+ @Godot
+ class MyButton: Button {
+     @GodotSignal("pressed")
+     var onPressed: () -> Void = {}
+
+     override func _ready() {
+         $onPressed.bind(to: self)
+     }
+ }
+ ```
+ */
 @propertyWrapper
 public struct GodotSignal<Handler> {
 

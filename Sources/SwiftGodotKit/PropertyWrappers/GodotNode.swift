@@ -10,23 +10,25 @@ public enum NodeLookup: Sendable, Equatable {
     case group(String)
 }
 
-/// A property wrapper for declarative, type-safe node references.
-///
-/// `@GodotNode` provides lazy lookup with automatic caching.
-/// Configure the owner in `_ready()` to enable lookups.
-///
-/// ```swift
-/// @Godot
-/// class GameUI: Control {
-///     @GodotNode("HealthBar") var healthBar: ProgressBar?
-///     @GodotNode(.unique("Player")) var player: CharacterBody3D?
-///
-///     override func _ready() {
-///         $healthBar.configure(owner: self)
-///         $player.configure(owner: self)
-///     }
-/// }
-/// ```
+/**
+ A property wrapper for declarative, type-safe node references.
+
+ `@GodotNode` provides lazy lookup with automatic caching.
+ Configure the owner in `_ready()` to enable lookups.
+
+ ```swift
+ @Godot
+ class GameUI: Control {
+     @GodotNode("HealthBar") var healthBar: ProgressBar?
+     @GodotNode(.unique("Player")) var player: CharacterBody3D?
+
+     override func _ready() {
+         $healthBar.configure(owner: self)
+         $player.configure(owner: self)
+     }
+ }
+ ```
+ */
 @propertyWrapper
 public struct GodotNode<NodeType: Node> {
 

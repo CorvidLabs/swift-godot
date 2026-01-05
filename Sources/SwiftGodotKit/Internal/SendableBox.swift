@@ -1,9 +1,11 @@
 import Foundation
 
-/// Thread-safe mutable container for values across isolation boundaries.
-///
-/// Use when you need mutable shared state with Sendable conformance.
-/// For new code, prefer actors when possible.
+/**
+ Thread-safe mutable container for values across isolation boundaries.
+
+ Use when you need mutable shared state with Sendable conformance.
+ For new code, prefer actors when possible.
+ */
 @propertyWrapper
 public final class Box<Value>: @unchecked Sendable {
 
