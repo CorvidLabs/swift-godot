@@ -21,10 +21,16 @@ let package = Package(
     ],
     dependencies: [
         // SwiftGodot uses unsafe build flags for C interop.
-        // Branch tracking bypasses SPM's restriction on unsafe flags.
+        // A non-version requirement (revision) bypasses SPM's restriction on
+        // unsafe flags the same way a floating branch would, but pins the
+        // dependency to a known-good, tagged commit instead of tracking
+        // `main` live. This avoids CI breaking whenever upstream `main`
+        // moves ahead of what CI's Xcode ships (main has since bumped to
+        // swift-tools-version 6.3 while GitHub's macOS runner only has
+        // Swift 6.2.4) or lands work-in-progress refactors.
         .package(
             url: "https://github.com/migueldeicaza/SwiftGodot.git",
-            branch: "main"
+            revision: "48112dd50fffe01f0af78e445a16991ecdc6bc94" // v0.75.0
         ),
         .package(
             url: "https://github.com/swiftlang/swift-docc-plugin.git",

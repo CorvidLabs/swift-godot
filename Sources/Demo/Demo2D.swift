@@ -290,7 +290,7 @@ class Enemy2D: CharacterBody2D {
             attackCooldown = 1.0
 
             // Knockback
-            let knockback = (globalPosition - target.globalPosition).normalized() * 50
+            let knockback = (globalPosition - target.globalPosition).normalized() * 50.0
             globalPosition += knockback
         }
     }
