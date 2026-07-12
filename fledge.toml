@@ -1,0 +1,7 @@
+[tasks]
+build = "swift build --target SwiftGodotKit"
+test = "swift test"
+
+[lanes.verify]
+description = "Build and test SwiftGodotKit without launching a live Godot engine"
+steps = ["build", "test"]
