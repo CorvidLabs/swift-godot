@@ -23,4 +23,4 @@ jobs:
         id: trust
         uses: CorvidLabs/trust@9d32b5786d2e9e4d39fc581c0091c721ee3d4226 # v1.0.0
         with:
-          range: ${{ github.event_name == 'pull_request' && format('{0}...{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}...{1}', github.event.before, github.sha) }}
+          range: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
