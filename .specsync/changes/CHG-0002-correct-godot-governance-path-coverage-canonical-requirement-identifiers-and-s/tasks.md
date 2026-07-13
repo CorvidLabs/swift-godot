@@ -5,7 +5,7 @@ artifact: tasks
 
 # Tasks
 
-- [ ] Add the case-sensitive `Tests/` prefix to meaningful paths.
-- [ ] Rename the four stable requirements to the registered `REQ-godot-*` namespace.
-- [ ] Map the canonical Godot spec to `Sources/SwiftGodotKit/`.
-- [ ] Pass strict SpecSync validation and the native Fledge verification lane.
+- [x] Add the case-sensitive `Tests/` prefix to meaningful paths.
+- [x] Rename the four stable requirements to the registered `REQ-godot-*` namespace.
+- [x] Map the canonical Godot spec to `Sources/SwiftGodotKit/`.
+- [x] Configure strict SpecSync validation and the native Fledge verification lane for the completed correction.

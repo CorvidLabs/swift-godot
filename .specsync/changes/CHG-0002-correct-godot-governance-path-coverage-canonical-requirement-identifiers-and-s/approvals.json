@@ -6,6 +6,13 @@
       "timestamp": 1783952268,
       "digest": "9853973bf572b712ea870f47ea20d62908c21ce4274306a96a8d5510f03de2fa",
       "note": "Definition approved for the three validated non-semantic governance corrections after semantic-delta completion."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783952676,
+      "digest": "7288c7644162a3a0a8f249121681faaed613bafbef750b704fd46bb364c0e9a8",
+      "note": "Fresh definition approval after truthful completed-task correction; prior approval history preserved."
     }
   ]
 }
