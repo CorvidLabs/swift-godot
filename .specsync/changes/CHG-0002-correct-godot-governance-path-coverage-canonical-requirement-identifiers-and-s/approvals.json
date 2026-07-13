@@ -13,6 +13,13 @@
       "timestamp": 1783952676,
       "digest": "7288c7644162a3a0a8f249121681faaed613bafbef750b704fd46bb364c0e9a8",
       "note": "Fresh definition approval after truthful completed-task correction; prior approval history preserved."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783953225,
+      "digest": "d810990e3058c3ea10a7cd56471d4d80fd94751ae27620bcb161c3ca04d96cf4",
+      "note": "Fresh definition approval after requirement-linked verification evidence was added; prior approval history preserved."
     }
   ]
 }
