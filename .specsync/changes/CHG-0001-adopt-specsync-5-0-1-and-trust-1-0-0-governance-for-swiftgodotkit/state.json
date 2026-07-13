@@ -5,10 +5,10 @@
   "title": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for SwiftGodotKit",
   "description": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for SwiftGodotKit",
   "kind": "migration",
-  "state": "accepted",
+  "state": "implementing",
   "base_commit": "96a59f9bd069320d1328a632b571cc3f5497f68d",
   "created_at": 1783886167,
-  "updated_at": 1783950168,
+  "updated_at": 1783957191,
   "affected_specs": [],
   "affected_paths": [
     "Sources/",

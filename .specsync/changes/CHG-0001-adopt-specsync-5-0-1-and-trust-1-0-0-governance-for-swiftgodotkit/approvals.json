@@ -13,6 +13,13 @@
       "timestamp": 1783950168,
       "digest": "80e7317afb6d9bf18edd6f0b4c1088553a06ccf20fe52c2c8717dcb05406e205",
       "note": "Native Fledge lane passed: SwiftGodotKit build and 17 tests; governance-only semantics confirmed."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783957191,
+      "digest": "fefed7548bb2505a9a718396895909b021f831709f729b8a43ef523e08f00139",
+      "note": "Fresh definition approval under explicit audit-risk authorization; prior approval history preserved and current corrected artifacts reviewed."
     }
   ]
 }
