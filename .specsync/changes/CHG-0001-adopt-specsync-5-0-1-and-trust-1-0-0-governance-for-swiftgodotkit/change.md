@@ -1,6 +1,6 @@
 ---
 id: CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swiftgodotkit
-state: draft
+state: accepted
 type: migration
 base_commit: 96a59f9bd069320d1328a632b571cc3f5497f68d
 ---
@@ -13,15 +13,12 @@ Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for SwiftGodotKit
 
 ## Affected Canonical Specs
 
-- `godot`
+- None
 
 ## Acceptance Criteria
 
-- Strict SpecSync passes at advisory threshold 0; all four agents and Trust doctor pass; SwiftGodotKit builds and tests on macOS; live Godot
-- demo
-- dependency
-- and DocC boundaries remain intact
+- Strict SpecSync passes at advisory threshold 0; all four agents and Trust doctor pass; SwiftGodotKit builds and tests on macOS; live Godot, demo, dependency, and DocC boundaries remain intact
 
 ## No-spec Rationale
 
-Not applicable
+This governance-only migration assigns stable requirement IDs and configures SpecSync and Trust without changing SwiftGodotKit runtime behavior or existing requirement semantics.
