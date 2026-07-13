@@ -1,0 +1,11 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783952268,
+      "digest": "9853973bf572b712ea870f47ea20d62908c21ce4274306a96a8d5510f03de2fa",
+      "note": "Definition approved for the three validated non-semantic governance corrections after semantic-delta completion."
+    }
+  ]
+}

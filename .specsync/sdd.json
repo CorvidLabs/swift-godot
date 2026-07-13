@@ -4,7 +4,7 @@
   "require_change_for_meaningful_files": true,
   "meaningful_paths": [
     "src/",
-    "tests/",
+    "Tests/",
     "site/",
     ".github/",
     "Cargo.toml",

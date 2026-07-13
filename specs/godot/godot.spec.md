@@ -4,6 +4,7 @@ version: 1
 status: active
 files:
   - Package.swift
+  - Sources/SwiftGodotKit/
 
 db_tables: []
 depends_on: []
