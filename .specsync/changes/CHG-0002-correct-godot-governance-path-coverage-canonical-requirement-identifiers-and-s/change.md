@@ -1,6 +1,6 @@
 ---
 id: CHG-0002-correct-godot-governance-path-coverage-canonical-requirement-identifiers-and-s
-state: implementing
+state: accepted
 type: bug_fix
 base_commit: b4182178c7a14851e52346286032e1f6190078c3
 ---

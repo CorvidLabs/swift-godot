@@ -1,9 +1,10 @@
 {
-  "timestamp": 1783953014,
-  "commit": "fec67c76795e105ba6d4a379d8a55105e553f008",
-  "contract_digest": "7288c7644162a3a0a8f249121681faaed613bafbef750b704fd46bb364c0e9a8",
-  "workspace_digest": "5139ca4c5f693e6dccfc10bde40958e640bf36a37953ae04b35900818bd325fe",
-  "passed": false,
+  "timestamp": 1783953257,
+  "commit": "8fee6f6cb155344647720fa0da7265107dc4c4bc",
+  "contract_digest": "d810990e3058c3ea10a7cd56471d4d80fd94751ae27620bcb161c3ca04d96cf4",
+  "workspace_digest": "64efdefaf10bec62fcaecf230b94f23eeb03bda82708605da50b3b43ecfa4a73",
+  "acceptance_input_digest": "136f1c6baf6f8a089c517bad6813a7997fa3cd6596d348de0a880c6bd31d2f11",
+  "passed": true,
   "commands": [
     {
       "command": "fledge lanes run verify",
@@ -11,5 +12,7 @@
       "exit_code": 0
     }
   ],
-  "requirement_ids": []
+  "requirement_ids": [
+    "REQ-godot-004"
+  ]
 }

@@ -20,6 +20,13 @@
       "timestamp": 1783953225,
       "digest": "d810990e3058c3ea10a7cd56471d4d80fd94751ae27620bcb161c3ca04d96cf4",
       "note": "Fresh definition approval after requirement-linked verification evidence was added; prior approval history preserved."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783953265,
+      "digest": "8b3e2e78f3ef3f86ef1cf7806a5cb1685deb0e223757a9b00a311970c61caa0b",
+      "note": "Closing approval recorded after successful committed-head Swift build and all 17 native tests with REQ-godot-004 evidence."
     }
   ]
 }

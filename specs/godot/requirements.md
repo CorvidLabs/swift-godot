@@ -10,10 +10,11 @@ spec: godot.spec.md
 
 ### REQ-godot-004
 
-Native verification SHALL build `SwiftGodotKit` and run its tests without launching or mutating a live Godot project.
+Native verification SHALL build `SwiftGodotKit`, run its tests without launching or mutating a live Godot project, and validate the canonical governance metadata for case-sensitive test paths, requirement identifiers, and source mappings.
 
 Acceptance Criteria
-- The native verification lane builds `SwiftGodotKit` and passes its test suite without launching Godot.
+- The strict SpecSync check validates the corrected `Tests/` path, `REQ-godot-*` namespace, and `Sources/SwiftGodotKit/` mapping.
+- The native Fledge verification lane builds `SwiftGodotKit` and passes its test suite without launching Godot.
 
 ## Constraints
 

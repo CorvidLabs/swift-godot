@@ -1,6 +1,6 @@
 ---
 module: godot
-version: 1
+version: 2
 status: active
 files:
   - Package.swift
@@ -14,7 +14,7 @@ depends_on: []
 
 ## Purpose
 
-Provide the existing declarative Swift extensions, property wrappers, asynchronous signal utilities, node protocols, and extensions for Godot 4.4 development, plus the independently built demonstration target.
+Provide the existing declarative Swift extensions, property wrappers, asynchronous signal utilities, node protocols, and extensions for Godot 4.4 development, plus the independently built demonstration target. The canonical source mapping covers the Swift package manifest and the SwiftGodotKit library sources without changing runtime behavior.
 
 ## Public API
 
@@ -58,3 +58,4 @@ Then lookup, state tracking, or signal delivery follows the existing typed API
 | Version | Date | Changes |
 |---------|------|---------|
 | 1 | 2026-07-12 | Initial spec |
+| 2026-07-13 | CHG-0002-correct-godot-governance-path-coverage-canonical-requirement-identifiers-and-s: Correct Godot governance path coverage, canonical requirement identifiers, and source mappings without changing runtime behavior |
