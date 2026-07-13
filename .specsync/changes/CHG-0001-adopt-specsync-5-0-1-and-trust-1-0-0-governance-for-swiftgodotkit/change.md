@@ -1,6 +1,6 @@
 ---
 id: CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swiftgodotkit
-state: implementing
+state: accepted
 type: migration
 base_commit: 96a59f9bd069320d1328a632b571cc3f5497f68d
 ---
