@@ -1,7 +1,8 @@
 [tasks]
+sdd = "specsync lifecycle enforce --strict --require-coverage 100"
 build = "swift build --target SwiftGodotKit"
 test = "swift test"
 
 [lanes.verify]
 description = "Build and test SwiftGodotKit without launching a live Godot engine"
-steps = ["build", "test"]
+steps = ["sdd", "build", "test"]

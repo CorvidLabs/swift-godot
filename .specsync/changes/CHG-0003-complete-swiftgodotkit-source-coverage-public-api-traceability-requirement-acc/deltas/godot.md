@@ -1,64 +1,39 @@
----
-module: godot
-version: 3
-status: active
-files:
-  - Package.swift
-  - Sources/Demo/AsteroidsDemo.swift
-  - Sources/Demo/AsyncDemo.swift
-  - Sources/Demo/AudioDemo.swift
-  - Sources/Demo/BreakoutDemo.swift
-  - Sources/Demo/CameraDemo.swift
-  - Sources/Demo/ColorLabDemo.swift
-  - Sources/Demo/Demo.swift
-  - Sources/Demo/Demo2D.swift
-  - Sources/Demo/DemoMenu.swift
-  - Sources/Demo/DungeonDemo.swift
-  - Sources/Demo/EnemySpawner.swift
-  - Sources/Demo/FeatureCatalog.swift
-  - Sources/Demo/GameManager.swift
-  - Sources/Demo/GameSystemsDemo.swift
-  - Sources/Demo/GameUI.swift
-  - Sources/Demo/MemoryDemo.swift
-  - Sources/Demo/MusicTheoryDemo.swift
-  - Sources/Demo/ParticlesDemo.swift
-  - Sources/Demo/PauseMenu.swift
-  - Sources/Demo/PlatformerDemo.swift
-  - Sources/Demo/Player.swift
-  - Sources/Demo/ProceduralArtDemo.swift
-  - Sources/Demo/QRCodeDemo.swift
-  - Sources/Demo/RhythmDemo.swift
-  - Sources/Demo/SnakeDemo.swift
-  - Sources/Demo/SwiftColorAlias.swift
-  - Sources/Demo/TextDataDemo.swift
-  - Sources/Demo/TweenDemo.swift
-  - Sources/SwiftGodotKit/Async/AsyncSignal.swift
-  - Sources/SwiftGodotKit/Async/GodotTask.swift
-  - Sources/SwiftGodotKit/Async/SignalAwaiter.swift
-  - Sources/SwiftGodotKit/Extensions/Node+Extensions.swift
-  - Sources/SwiftGodotKit/Extensions/Object+Extensions.swift
-  - Sources/SwiftGodotKit/Internal/GodotContext.swift
-  - Sources/SwiftGodotKit/Internal/SendableBox.swift
-  - Sources/SwiftGodotKit/PropertyWrappers/GodotNode.swift
-  - Sources/SwiftGodotKit/PropertyWrappers/GodotSignal.swift
-  - Sources/SwiftGodotKit/PropertyWrappers/GodotState.swift
-  - Sources/SwiftGodotKit/Protocols/NodeController.swift
-  - Sources/SwiftGodotKit/Protocols/SceneController.swift
-  - Sources/SwiftGodotKit/Protocols/SignalEmitting.swift
-  - Sources/SwiftGodotKit/Protocols/SignalReceiving.swift
-  - Sources/SwiftGodotKit/SwiftGodotKit.swift
+## MODIFIED
 
-db_tables: []
-depends_on: []
----
+### REQUIREMENT REQ-godot-001
 
-# SwiftGodotKit
+Property wrappers SHALL preserve existing reactive state, typed node lookup, and declarative signal behavior.
 
-## Purpose
+Acceptance Criteria
+- `GodotState`, `GodotNode`, and `GodotSignal` remain present in the validated public API inventory.
+- `PropertyWrapperTests` passes its state initialization, mutation, change detection, reset, and two-way binding scenarios without launching a live Godot project.
 
-Provide the existing declarative Swift extensions, property wrappers, asynchronous signal utilities, node protocols, and extensions for Godot 4.4 development, plus the independently built demonstration target. The canonical source mapping covers the Swift package manifest and the SwiftGodotKit library sources without changing runtime behavior.
+Verification
+- `fledge lanes run verify`
 
-## Public API
+### REQUIREMENT REQ-godot-002
+
+Async signal and frame utilities SHALL preserve timeout, cancellation, and Swift concurrency behavior.
+
+Acceptance Criteria
+- `AsyncSignal`, `SignalAwaiter`, and the Godot task APIs remain present in the validated public API inventory.
+- The package build type-checks the async signal and task APIs, while `AsyncTests` validates the signal error cases and Sendable boxed state used by the async helpers.
+
+Verification
+- `fledge lanes run verify`
+
+### REQUIREMENT REQ-godot-003
+
+Controller protocols and node/object extensions SHALL retain their documented typed lifecycle and traversal APIs.
+
+Acceptance Criteria
+- `NodeController`, `SceneController`, `SignalEmitting`, and `SignalReceiving` remain present in the validated public API inventory.
+- The package build type-checks the controller, signal, and extension APIs, while `ProtocolTests` validates the `NodeBuilder` empty-block contract without requiring Godot runtime state.
+
+Verification
+- `fledge lanes run verify`
+
+### SPEC SECTION Public API
 
 The `SwiftGodotKit` product re-exports SwiftGodot and exposes reactive state, node lookup and signal wrappers, async signal and frame utilities, controller and signal protocols, and node/object extensions. The dynamic demo product and Godot project remain examples rather than additional library guarantees.
 
@@ -223,42 +198,3 @@ The `SwiftGodotKit` product re-exports SwiftGodot and exposes reactive state, no
 | `receiveOnce` | `Sources/SwiftGodotKit/Protocols/SignalReceiving.swift` | Signal-receiving protocol and subscription API. |
 | `SwiftGodotKit` | `Sources/SwiftGodotKit/SwiftGodotKit.swift` | SwiftGodotKit package namespace and version API. |
 | `version` | `Sources/SwiftGodotKit/SwiftGodotKit.swift` | SwiftGodotKit package namespace and version API. |
-
-## Invariants
-
-1. Property wrappers preserve their documented value, change, lookup, and signal-connection semantics.
-2. Async utilities resume or terminate according to Godot signal, frame, cancellation, and timeout behavior without violating Swift concurrency isolation.
-3. Controller protocols and extensions preserve type-safe node ownership and traversal behavior.
-4. The SwiftGodot dependency remains pinned to its known-good immutable revision.
-5. Launching Godot or interacting with a live engine remains independently authorized and outside the blocking pull-request lane.
-
-## Behavioral Examples
-
-```
-Given a Godot node configured through a SwiftGodotKit property wrapper
-When the node enters its documented lifecycle
-Then lookup, state tracking, or signal delivery follows the existing typed API
-```
-
-## Error Cases
-
-| Error | When | Behavior |
-|-------|------|----------|
-| Missing node | A configured path, unique name, or group has no matching node | Preserve optional lookup behavior |
-| Signal timeout | An awaited signal does not arrive before its deadline | Return the existing timeout failure |
-| Cancellation | An async wait is cancelled | Terminate without leaking the continuation |
-| Unsupported engine context | Runtime-only behavior is invoked without Godot | Surface the existing failure rather than fabricate engine state |
-
-## Dependencies
-
-- Swift 6 and supported macOS/iOS versions
-- SwiftGodot at the immutable revision declared in `Package.swift`
-- CorvidLabs demo dependencies and Swift-DocC plugin
-
-## Change Log
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1 | 2026-07-12 | Initial spec |
-| 2026-07-13 | CHG-0002-correct-godot-governance-path-coverage-canonical-requirement-identifiers-and-s: Correct Godot governance path coverage, canonical requirement identifiers, and source mappings without changing runtime behavior |
-| 3 | 2026-07-14 | CHG-0003-complete-swiftgodotkit-source-coverage-public-api-traceability-requirement-acc: Complete SwiftGodotKit source coverage, public API traceability, requirement acceptance criteria, governance lifecycle paths, and blocking 100 percent contract enforcement without changing product behavior |

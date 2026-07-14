@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0003-complete-swiftgodotkit-source-coverage-public-api-traceability-requirement-acc",
+  "slug": "complete-swiftgodotkit-source-coverage-public-api-traceability-requirement-acc",
+  "title": "Complete SwiftGodotKit source coverage, public API traceability, requirement acceptance criteria, governance lifecycle paths, and blocking 100 percent contract enforcement without changing product behavior",
+  "description": "Complete SwiftGodotKit source coverage, public API traceability, requirement acceptance criteria, governance lifecycle paths, and blocking 100 percent contract enforcement without changing product behavior",
+  "kind": "operations",
+  "state": "accepted",
+  "canonical_applied": true,
+  "base_commit": "39377e39b6a0a43bac8fde21a0b260ff39bb9fe0",
+  "created_at": 1784021396,
+  "updated_at": 1784022211,
+  "affected_specs": [
+    "godot"
+  ],
+  "affected_paths": [
+    ".specsync/change-sequence.json"
+  ],
+  "no_spec_change": false,
+  "no_spec_change_rationale": null,
+  "acceptance_criteria": [
+    "Released SpecSync 5.0.1 reports 43 of 43 authored Swift files and 11114 of 11114 LOC governed; every detected SwiftGodotKit public export is documented; all stable requirements have concrete acceptance criteria and verification links; the meaningful-path policy covers governance authorities; the Fledge lane blocks on SDD change validation plus native build and tests; local Trust and exact-head hosted Trust pass"
+  ],
+  "selected_artifacts": [
+    "context",
+    "plan",
+    "testing"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "no",
+    "public_contract": "no"
+  }
+}

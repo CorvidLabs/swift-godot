@@ -4,9 +4,38 @@ spec: godot.spec.md
 
 ## Requirements
 
-- **REQ-godot-001** (stable): Property wrappers shall preserve existing reactive state, typed node lookup, and declarative signal behavior.
-- **REQ-godot-002** (stable): Async signal and frame utilities shall preserve timeout, cancellation, and Swift concurrency behavior.
-- **REQ-godot-003** (stable): Controller protocols and node/object extensions shall retain their documented typed lifecycle and traversal APIs.
+### REQ-godot-001
+
+Property wrappers SHALL preserve existing reactive state, typed node lookup, and declarative signal behavior.
+
+Acceptance Criteria
+- `GodotState`, `GodotNode`, and `GodotSignal` remain present in the validated public API inventory.
+- `PropertyWrapperTests` passes its state initialization, mutation, change detection, reset, and two-way binding scenarios without launching a live Godot project.
+
+Verification
+- `fledge lanes run verify`
+
+### REQ-godot-002
+
+Async signal and frame utilities SHALL preserve timeout, cancellation, and Swift concurrency behavior.
+
+Acceptance Criteria
+- `AsyncSignal`, `SignalAwaiter`, and the Godot task APIs remain present in the validated public API inventory.
+- The package build type-checks the async signal and task APIs, while `AsyncTests` validates the signal error cases and Sendable boxed state used by the async helpers.
+
+Verification
+- `fledge lanes run verify`
+
+### REQ-godot-003
+
+Controller protocols and node/object extensions SHALL retain their documented typed lifecycle and traversal APIs.
+
+Acceptance Criteria
+- `NodeController`, `SceneController`, `SignalEmitting`, and `SignalReceiving` remain present in the validated public API inventory.
+- The package build type-checks the controller, signal, and extension APIs, while `ProtocolTests` validates the `NodeBuilder` empty-block contract without requiring Godot runtime state.
+
+Verification
+- `fledge lanes run verify`
 
 ### REQ-godot-004
 
