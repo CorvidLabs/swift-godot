@@ -1,0 +1,157 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783949834,
+      "digest": "fefed7548bb2505a9a718396895909b021f831709f729b8a43ef523e08f00139",
+      "note": "Authorized portable definition approval for the reviewed governance-only migration; no hosted CI or closing approval is claimed."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783950168,
+      "digest": "80e7317afb6d9bf18edd6f0b4c1088553a06ccf20fe52c2c8717dcb05406e205",
+      "note": "Native Fledge lane passed: SwiftGodotKit build and 17 tests; governance-only semantics confirmed."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783957191,
+      "digest": "fefed7548bb2505a9a718396895909b021f831709f729b8a43ef523e08f00139",
+      "note": "Fresh definition approval under explicit audit-risk authorization; prior approval history preserved and current corrected artifacts reviewed."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783957799,
+      "digest": "5844c78da2d918c14f5f3bc428c191588fbd4f5e261105f00ccad2c11821c87e",
+      "note": "Fresh closing approval under explicit audit-risk authorization after successful committed-head native re-verification."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1784022209,
+      "digest": "2cfa2c11d4f9a20ce89b6436822a89bcb32169f10067a89f0935d57c8adaa75a",
+      "note": null
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1784022393,
+      "digest": "a8357ca11dd2c62c83db5d65015d6268a5fee8227caa1c89a592ec9902843334",
+      "note": null
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1784023179,
+      "digest": "f593fdbdd92102d794df638334a8cb7d7893a2d1a1b1207a09fc2171430e3cd1",
+      "note": null
+    }
+  ],
+  "reopenings": [
+    {
+      "schema_version": 1,
+      "change_id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swiftgodotkit",
+      "actor": "user:0xLeif",
+      "reason": "The comprehensive 100 percent contract correction updated governed delivery inputs after the prior accepted verification",
+      "timestamp": 1784021812,
+      "from_state": "accepted",
+      "to_state": "verifying",
+      "superseded_approval": {
+        "gate": "acceptance",
+        "actor": "user:0xLeif",
+        "timestamp": 1783957799,
+        "digest": "5844c78da2d918c14f5f3bc428c191588fbd4f5e261105f00ccad2c11821c87e",
+        "note": "Fresh closing approval under explicit audit-risk authorization after successful committed-head native re-verification."
+      },
+      "prior_verification": {
+        "timestamp": 1783957689,
+        "commit": "8f35803bed8f7c0702e76dbf67c57e3256a003bc",
+        "contract_digest": "fefed7548bb2505a9a718396895909b021f831709f729b8a43ef523e08f00139",
+        "workspace_digest": "c658ce8d5f7462cb85090d3a81c5c2aaa095e4d79c0069bbccb6463759f067c6",
+        "acceptance_input_digest": "42b192f59b5b1beb9dbd22f040471a0375c95fe40ff1be73b46978f654016efc",
+        "passed": true,
+        "commands": [
+          {
+            "command": "fledge lanes run verify",
+            "success": true,
+            "exit_code": 0
+          }
+        ],
+        "requirement_ids": []
+      },
+      "stale_acceptance_input_digest": "42b192f59b5b1beb9dbd22f040471a0375c95fe40ff1be73b46978f654016efc",
+      "current_acceptance_input_digest": "7bf28170b172e4e46e46d46f61195b3e85ac22f689e3783f63e5c715a752215b"
+    },
+    {
+      "schema_version": 1,
+      "change_id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swiftgodotkit",
+      "actor": "user:0xLeif",
+      "reason": "Applying the accepted comprehensive Godot contract delta updated canonical delivery inputs after the prior verification",
+      "timestamp": 1784022232,
+      "from_state": "accepted",
+      "to_state": "verifying",
+      "superseded_approval": {
+        "gate": "acceptance",
+        "actor": "user:0xLeif",
+        "timestamp": 1784022209,
+        "digest": "2cfa2c11d4f9a20ce89b6436822a89bcb32169f10067a89f0935d57c8adaa75a",
+        "note": null
+      },
+      "prior_verification": {
+        "timestamp": 1784022047,
+        "commit": "39377e39b6a0a43bac8fde21a0b260ff39bb9fe0",
+        "contract_digest": "fefed7548bb2505a9a718396895909b021f831709f729b8a43ef523e08f00139",
+        "workspace_digest": "35959bec7609894ec1674504c41f24c29b59736e43ef1bc80efe438a11dbf0d6",
+        "acceptance_input_digest": "5eb5084da5f02ed9e14e79bde5bef9c1112eb6a9316d2e404691ecbfba9ec670",
+        "passed": true,
+        "commands": [
+          {
+            "command": "fledge lanes run verify",
+            "success": true,
+            "exit_code": 0
+          }
+        ],
+        "requirement_ids": []
+      },
+      "stale_acceptance_input_digest": "5eb5084da5f02ed9e14e79bde5bef9c1112eb6a9316d2e404691ecbfba9ec670",
+      "current_acceptance_input_digest": "0784dc36cee1c46770dbc2d85142b0e1de803c232bc70bb58e3c41afe3fea582"
+    },
+    {
+      "schema_version": 1,
+      "change_id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swiftgodotkit",
+      "actor": "user:0xLeif",
+      "reason": "The exact-head hosted runner required checksum-pinned SpecSync setup before the native lifecycle lane",
+      "timestamp": 1784022785,
+      "from_state": "accepted",
+      "to_state": "verifying",
+      "superseded_approval": {
+        "gate": "acceptance",
+        "actor": "user:0xLeif",
+        "timestamp": 1784022393,
+        "digest": "a8357ca11dd2c62c83db5d65015d6268a5fee8227caa1c89a592ec9902843334",
+        "note": null
+      },
+      "prior_verification": {
+        "timestamp": 1784022313,
+        "commit": "39377e39b6a0a43bac8fde21a0b260ff39bb9fe0",
+        "contract_digest": "fefed7548bb2505a9a718396895909b021f831709f729b8a43ef523e08f00139",
+        "workspace_digest": "9f5bf052a2d5bbe2b9166f01dd060292b9db982a6187dbaae14982523b851903",
+        "acceptance_input_digest": "0784dc36cee1c46770dbc2d85142b0e1de803c232bc70bb58e3c41afe3fea582",
+        "passed": true,
+        "commands": [
+          {
+            "command": "fledge lanes run verify",
+            "success": true,
+            "exit_code": 0
+          }
+        ],
+        "requirement_ids": []
+      },
+      "stale_acceptance_input_digest": "0784dc36cee1c46770dbc2d85142b0e1de803c232bc70bb58e3c41afe3fea582",
+      "current_acceptance_input_digest": "430c7bee4eca9c4a81717ea240c52d9edec9e5883244861da7a2216deafb58e4"
+    }
+  ]
+}

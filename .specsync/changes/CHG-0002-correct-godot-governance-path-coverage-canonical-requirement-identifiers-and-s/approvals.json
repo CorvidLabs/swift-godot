@@ -1,0 +1,120 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783952268,
+      "digest": "9853973bf572b712ea870f47ea20d62908c21ce4274306a96a8d5510f03de2fa",
+      "note": "Definition approved for the three validated non-semantic governance corrections after semantic-delta completion."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783952676,
+      "digest": "7288c7644162a3a0a8f249121681faaed613bafbef750b704fd46bb364c0e9a8",
+      "note": "Fresh definition approval after truthful completed-task correction; prior approval history preserved."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783953225,
+      "digest": "d810990e3058c3ea10a7cd56471d4d80fd94751ae27620bcb161c3ca04d96cf4",
+      "note": "Fresh definition approval after requirement-linked verification evidence was added; prior approval history preserved."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783953265,
+      "digest": "8b3e2e78f3ef3f86ef1cf7806a5cb1685deb0e223757a9b00a311970c61caa0b",
+      "note": "Closing approval recorded after successful committed-head Swift build and all 17 native tests with REQ-godot-004 evidence."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1784022210,
+      "digest": "aadb246ecacb7a81455053fa687295ff8055889c3bb6d1fb3233db5f45fe10f3",
+      "note": null
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1784022394,
+      "digest": "d7a50dfd96fe191811efeea493294a2f2f59a33a289909578b677d9417077564",
+      "note": null
+    }
+  ],
+  "reopenings": [
+    {
+      "schema_version": 1,
+      "change_id": "CHG-0002-correct-godot-governance-path-coverage-canonical-requirement-identifiers-and-s",
+      "actor": "user:0xLeif",
+      "reason": "The comprehensive 100 percent contract correction updated governed delivery inputs after the prior accepted verification",
+      "timestamp": 1784021812,
+      "from_state": "accepted",
+      "to_state": "verifying",
+      "superseded_approval": {
+        "gate": "acceptance",
+        "actor": "user:0xLeif",
+        "timestamp": 1783953265,
+        "digest": "8b3e2e78f3ef3f86ef1cf7806a5cb1685deb0e223757a9b00a311970c61caa0b",
+        "note": "Closing approval recorded after successful committed-head Swift build and all 17 native tests with REQ-godot-004 evidence."
+      },
+      "prior_verification": {
+        "timestamp": 1783953257,
+        "commit": "8fee6f6cb155344647720fa0da7265107dc4c4bc",
+        "contract_digest": "d810990e3058c3ea10a7cd56471d4d80fd94751ae27620bcb161c3ca04d96cf4",
+        "workspace_digest": "64efdefaf10bec62fcaecf230b94f23eeb03bda82708605da50b3b43ecfa4a73",
+        "acceptance_input_digest": "136f1c6baf6f8a089c517bad6813a7997fa3cd6596d348de0a880c6bd31d2f11",
+        "passed": true,
+        "commands": [
+          {
+            "command": "fledge lanes run verify",
+            "success": true,
+            "exit_code": 0
+          }
+        ],
+        "requirement_ids": [
+          "REQ-godot-004"
+        ]
+      },
+      "stale_acceptance_input_digest": "136f1c6baf6f8a089c517bad6813a7997fa3cd6596d348de0a880c6bd31d2f11",
+      "current_acceptance_input_digest": "8cec2b04a57bc70202048842e2c9702b76e75a74e52ebba6482280d32e196763"
+    },
+    {
+      "schema_version": 1,
+      "change_id": "CHG-0002-correct-godot-governance-path-coverage-canonical-requirement-identifiers-and-s",
+      "actor": "user:0xLeif",
+      "reason": "Applying the accepted comprehensive Godot contract delta updated canonical delivery inputs after the prior verification",
+      "timestamp": 1784022233,
+      "from_state": "accepted",
+      "to_state": "verifying",
+      "superseded_approval": {
+        "gate": "acceptance",
+        "actor": "user:0xLeif",
+        "timestamp": 1784022210,
+        "digest": "aadb246ecacb7a81455053fa687295ff8055889c3bb6d1fb3233db5f45fe10f3",
+        "note": null
+      },
+      "prior_verification": {
+        "timestamp": 1784022133,
+        "commit": "39377e39b6a0a43bac8fde21a0b260ff39bb9fe0",
+        "contract_digest": "d810990e3058c3ea10a7cd56471d4d80fd94751ae27620bcb161c3ca04d96cf4",
+        "workspace_digest": "35959bec7609894ec1674504c41f24c29b59736e43ef1bc80efe438a11dbf0d6",
+        "acceptance_input_digest": "8cec2b04a57bc70202048842e2c9702b76e75a74e52ebba6482280d32e196763",
+        "passed": true,
+        "commands": [
+          {
+            "command": "fledge lanes run verify",
+            "success": true,
+            "exit_code": 0
+          }
+        ],
+        "requirement_ids": [
+          "REQ-godot-004"
+        ]
+      },
+      "stale_acceptance_input_digest": "8cec2b04a57bc70202048842e2c9702b76e75a74e52ebba6482280d32e196763",
+      "current_acceptance_input_digest": "42cab77c73b140da83eb34cffd4d48b91dbab769837dd40666e02875bf3d429a"
+    }
+  ]
+}

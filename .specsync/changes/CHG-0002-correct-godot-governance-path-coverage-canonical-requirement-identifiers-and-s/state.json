@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0002-correct-godot-governance-path-coverage-canonical-requirement-identifiers-and-s",
+  "slug": "correct-godot-governance-path-coverage-canonical-requirement-identifiers-and-s",
+  "title": "Correct Godot governance path coverage, canonical requirement identifiers, and source mappings without changing runtime behavior",
+  "description": "Correct Godot governance path coverage, canonical requirement identifiers, and source mappings without changing runtime behavior",
+  "kind": "bug_fix",
+  "state": "accepted",
+  "canonical_applied": true,
+  "base_commit": "b4182178c7a14851e52346286032e1f6190078c3",
+  "created_at": 1783951758,
+  "updated_at": 1784022394,
+  "affected_specs": [
+    "godot"
+  ],
+  "affected_paths": [
+    ".specsync/sdd.json",
+    "specs/godot/godot.spec.md",
+    "specs/godot/requirements.md"
+  ],
+  "no_spec_change": false,
+  "no_spec_change_rationale": null,
+  "acceptance_criteria": [
+    "Tests directory changes are meaningful and requirements use REQ-godot-001 through REQ-godot-004 and the canonical spec maps Package.swift plus Sources/SwiftGodotKit while runtime APIs and behavior remain unchanged and strict SpecSync plus the native verification lane pass"
+  ],
+  "selected_artifacts": [
+    "context",
+    "testing",
+    "tasks"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "no",
+    "public_contract": "no"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swiftgodotkit",
+  "slug": "adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swiftgodotkit",
+  "title": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for SwiftGodotKit",
+  "description": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for SwiftGodotKit",
+  "kind": "migration",
+  "state": "accepted",
+  "canonical_applied": true,
+  "base_commit": "96a59f9bd069320d1328a632b571cc3f5497f68d",
+  "created_at": 1783886167,
+  "updated_at": 1784023179,
+  "affected_specs": [],
+  "affected_paths": [
+    "Sources/",
+    "Tests/",
+    "GodotProject/",
+    "Package.swift",
+    "fledge.toml",
+    ".github/",
+    ".specsync/",
+    "specs/",
+    ".trust.toml",
+    ".augur.toml",
+    ".attest.json",
+    "AGENTS.md"
+  ],
+  "no_spec_change": true,
+  "no_spec_change_rationale": "This governance-only migration assigns stable requirement IDs and configures SpecSync and Trust without changing SwiftGodotKit runtime behavior or existing requirement semantics.",
+  "acceptance_criteria": [
+    "Strict SpecSync passes at advisory threshold 0; all four agents and Trust doctor pass; SwiftGodotKit builds and tests on macOS; live Godot, demo, dependency, and DocC boundaries remain intact"
+  ],
+  "selected_artifacts": [
+    "context",
+    "research",
+    "design",
+    "plan",
+    "tasks",
+    "testing",
+    "docs"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "yes",
+    "public_contract": "no"
+  }
+}

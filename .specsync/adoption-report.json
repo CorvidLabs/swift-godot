@@ -1,0 +1,15 @@
+{
+  "bootstrap_policy": {
+    "base_commit": "96a59f9bd069320d1328a632b571cc3f5497f68d",
+    "digest": "17da9387d2f3e8e96682c32e539ea1f1797adbdbd784e02c47b0c608ada2b8a1",
+    "path": ".specsync/sdd.json"
+  },
+  "generated_at": 1783886072,
+  "requirements_needing_ids": [
+    {
+      "action": "review and assign one stable ID per durable requirement",
+      "path": "specs/godot/requirements.md",
+      "suggested_first_id": "REQ-godot-001"
+    }
+  ]
+}

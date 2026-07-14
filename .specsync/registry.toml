@@ -1,0 +1,5 @@
+[registry]
+name = "swift-godot-trust-wave9"
+
+[specs]
+godot = "specs/godot/godot.spec.md"
