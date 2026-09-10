@@ -19,19 +19,19 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
-      - name: Setup SpecSync 5.0.1 for native lifecycle verification
+      - name: Setup SpecSync 6.0.0 for native lifecycle verification
         shell: bash
         run: |
           set -euo pipefail
           case "$(uname -m)" in
             arm64)
               asset="specsync-macos-aarch64.tar.gz"
-              checksum="5ebadc47c1b6b6d409af1b09d88d1ebc945cb11a32789f9e7b4785acfcc5246c"
+              checksum="1328beeeba827a380840d51525e7aef1c67fee0ee53263db156948b3a29f7c42"
               binary="specsync-macos-aarch64"
               ;;
             x86_64)
               asset="specsync-macos-x86_64.tar.gz"
-              checksum="994ab5aacc1045e704bb198c1495d737149e67e8ae11af22608d8357aaaba05d"
+              checksum="c81e816e3e25b8c5a9b997e15b9049e0c6809aa8be42429a680d5dbbc1ac7820"
               binary="specsync-macos-x86_64"
               ;;
             *)
@@ -39,9 +39,9 @@ jobs:
               exit 1
               ;;
           esac
-          install_dir="$RUNNER_TEMP/specsync-5.0.1"
+          install_dir="$RUNNER_TEMP/specsync-6.0.0"
           mkdir -p "$install_dir"
-          curl -fsSL "https://github.com/CorvidLabs/spec-sync/releases/download/v5.0.1/$asset" \
+          curl -fsSL "https://github.com/CorvidLabs/spec-sync/releases/download/v6.0.0/$asset" \
             -o "$install_dir/$asset"
           printf '%s  %s\n' "$checksum" "$install_dir/$asset" | shasum -a 256 -c -
           tar -xzf "$install_dir/$asset" -C "$install_dir"
@@ -50,6 +50,6 @@ jobs:
           echo "$install_dir" >> "$GITHUB_PATH"
       - name: CorvidLabs Trust gate
         id: trust
-        uses: CorvidLabs/trust@e0272543ad5c88ec75cea1e606cc2efa552af25b # v1.2.0-rc.4
+        uses: CorvidLabs/trust@fcc889f54d8b4892a81af463c5a0250e2be66fc5 # v1.2.0
         with:
           range: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
